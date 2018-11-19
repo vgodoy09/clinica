@@ -1,0 +1,170 @@
+
+<div th:insert="fragments/layout/top"></div>
+
+<div id="action-angel">
+
+	<div v-if="loading" st>
+		<div class="row">
+			<div class="col-md-12" style="text-align: center;">
+				<img th:src="@{/img/loading-image.gif}">
+			</div>
+		</div>
+	</div>
+	<div v-cloak>
+
+		<div v-if="!loading">
+
+			<!-- Topo da página -->
+			<div id="muralvue" class="container">
+				<nav class="navbar navbar-expand-lg navbar-dark bg-blue fixed-top " style="padding: 0px !important;">
+					<div class="container">
+						<a class="navbar-brand mr-lg-5 username" href="#" v-text="namePerson"> Anjos em Ação </a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default"
+							aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbar-default">
+							<div class="navbar-collapse-header">
+								<div class="row">
+									<div class="col-6 collapse-brand">
+										<a href="#"> <img th:src="@{/img/AnjosdaEsperanca.png}"></a>
+									</div>
+									<div class="col-6 collapse-close">
+										<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-default" aria-controls="navbar-default"
+											aria-expanded="false" aria-label="Toggle navigation">
+											<span></span> <span></span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<ul class="navbar-nav ml-lg-auto">
+								<li class="nav-item" id="btInformation">
+									<div v-if="isAdmin">
+										<a class="nav-link nav-link-icon" target="_blank" href="https://novotempo.clicdata.com/v/Pux2zJmcpWGR"> <i
+											class="fa fa-signal"></i> <span class="nav-link-inner--text d-lg-none"></span>Estatísticas
+										</a>
+									</div>
+
+								</li>
+								<li class="nav-item" id="btInformation"><a class="nav-link nav-link-icon" href="#" @click="clickPoupapNewDonation"> <i
+										class="fa fa-address-card-o"></i> <span class="nav-link-inner--text d-lg-none"></span>Novo
+								</a></li>
+								<li class="nav-item" id="btInformation"><a class="nav-link nav-link-icon" href="#" @click="clickAngelPoupap"> <i
+										class="fa fa-user-o"></i> <span class="nav-link-inner--text d-lg-none"></span>Anjinho
+								</a></li>
+								<li class="nav-item" id="btInformation"><a class="nav-link nav-link-icon" href="#" @click="clickFast"> <i
+										class="fa fa-phone"></i> <span class="nav-link-inner--text d-lg-none"></span>Caiu a Ligação!
+								</a></li>
+								<li class="nav-item" id="btInformation"><a class="nav-link nav-link-icon" href="#" @click="clickPoupapMural"> <i
+										class="fa fa-info"></i> <span class="nav-link-inner--text d-lg-none"></span>Informações
+								</a></li>
+								<li class="nav-item" id="btInformation"><a class="nav-link nav-link-icon" th:href="@{/logout}"> <i class="fa fa-sign-out"></i>
+										<span class="nav-link-inner--text d-lg-none"></span>Sair
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+				<!-- informações  -->
+				<div th:insert="fragments/modals/mural"></div>
+				<!-- modal de confirmação de novo cadastro -->
+				<div th:insert="fragments/modals/newForm"></div>
+			</div>
+			<!-- fim do topo -->
+
+			<!-- corpo da página -->
+			<div class="container">
+
+				<main> <!-- mensagem de aviso geral -->
+				<div class="notification is-info angel-message-warning transparente" :class="{'top-show-message' : topMessageCss}">
+					<button @click="clickCloseMessageTop" class="delete"></button>
+					{{textMessageTop}}
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						<div class="tabs is-left" style="margin-bottom: 0px !important">
+							<ul class="ul-tab">
+								<li :class="showtab1"><a><img th:src="@{/img/cadastro.png}"> Dados Pessoais</a></li>
+								<li :class="showtab2"><a><img th:src="@{/img/doacao.png}">Doação</a></li>
+							</ul>
+						</div>
+					</div>
+					<!-- 					<div class="col-md-6"> -->
+					<!-- 						<div class="text-lg-right"> -->
+					<!-- 							<button type="button" @click="clickAngelPoupap" class="btn btn-facebook ">Anjinho</button> -->
+					<!-- 							<button @click="clickFast" type="button" class="btn btn-danger">Finalizar Agora</button> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+				</div>
+
+				<section class="tabpanel1" :class="{tabpanelshow : panel1}">
+					<h4>Dados Pessoais</h4>
+					<div th:insert="fragments/tabpanels/personpanel"></div>
+				</section>
+
+				<section class="tabpanel2" :class="{tabpanelshow : panel2}">
+					<div th:insert="fragments/tabpanels/donationpanel"></div>
+				</section>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<span>Observação</span>
+							<textarea v-model="attendance.observation" class="form-control form-control" rows="3" placeholder="Observações do atendimento..."></textarea>
+						</div>
+					</div>
+				</div>
+
+				</main>
+
+				<!-- modal de finalização rápida-->
+				<div th:insert="fragments/modals/finalfast"></div>
+
+				<!-- modal de avisos do sistema -->
+				<div th:insert="fragments/modals/warning"></div>
+
+				<!-- modal de avisos do sistema -->
+				<div th:insert="fragments/modals/warningcomplete"></div>
+
+				<!-- modal de anjinho-->
+				<div th:insert="fragments/modals/angel"></div>
+
+
+				<!-- modal c. credito -->
+				<div th:insert="fragments/modals/creditcard"></div>
+
+				<!--modal debito em conta-->
+				<div th:insert="fragments/modals/debitaccount"></div>
+
+				<!--modal boleto-->
+				<div th:insert="fragments/modals/billet"></div>
+
+				<!--modal deposito-->
+				<div th:insert="fragments/modals/deposit"></div>
+
+				<!-- modal de resumo de doações-->
+				<div th:insert="fragments/modals/resumedonation"></div>
+
+				<!-- modal de finalização da doação-->
+				<div th:insert="fragments/modals/finishwarning"></div>
+
+				<!-- modal de confirmação de exclusão da doação-->
+				<div th:insert="fragments/modals/warningdonationdelete"></div>
+
+
+			</div>
+			<!-- fim do corpo da página -->
+
+		</div>
+
+	</div>
+
+</div>
+
+
+<!-- rodapé da página -->
+<div th:insert="fragments/layout/footer"></div>
+
+
+

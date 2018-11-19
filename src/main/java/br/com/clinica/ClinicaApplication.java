@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
 import br.com.clinica.repository.MedicoRepository;
+import br.com.clinica.repository.UserRepository;
  
 @SpringBootApplication
 public class ClinicaApplication extends SpringBootServletInitializer implements CommandLineRunner {
@@ -20,6 +21,8 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	EspecialidadeRepository especialidadeRepository;
 	@Autowired
 	MedicoRepository medicoRepository;
+	@Autowired
+	UserRepository userRepository;
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -62,5 +65,8 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 //	    medico.setPhone("1147906017");
 //	    
 //	    medicoRepository.save(medico);
+		
+//		UserDTO login = userRepository.login("victor.godoy", "x8pdkv19");
+//		System.out.println(login);
 	}
 }

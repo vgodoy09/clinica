@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Start your development with a Design System for Bootstrap 4 inspired by Stripe.">
+<meta name="author" content="Creative Tim">
+<title>Clinica</title>
+<!-- Favicon -->
+<link th:href="@{/img/favico.png}" rel="icon" type="image/png">
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<!-- Icons -->
+<link th:href="@{/css/nucleo.css}" rel="stylesheet">
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+<!-- Optional CSS -->
+<!-- Argon CSS -->
+<!-- <link type="text/css" th:href="@{/css/argon.css?v=1.0.0}" rel="stylesheet"> -->
+<link type="text/css" th:href="@{/css/login.css}" rel="stylesheet">
+<link type="text/css" th:href="@{/fonts/nucleo-icons.woff2}" rel="stylesheet">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+<!--===============================================================================================-->
+
+</head>
+
+<body>
+	
+<!-- 		<div class="limiter"> -->
+<!-- 			<div class="container-login100"> -->
+<!-- 				<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55"> -->
+<!-- 					<form class="login100-form validate-form flex-sb flex-w"> -->
+<!-- 						<span class="login100-form-title p-b-32"> -->
+<!-- 							Clinica -->
+<!-- 						</span> -->
+						
+<!-- 							<span class="txt1 p-b-11"> -->
+<!-- 								Username -->
+<!-- 							</span> -->
+<!-- 							<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required"> -->
+		<!-- 						<input class="input100" type="text" name="username" > -->
+		<!-- 						<input class="form-control" v-model="login" @keyup.enter="clickLogin"  placeholder="Login" type="text"> -->
+<!-- 								<input class="input100" name="username" v-model="login" @keyup.enter="clickLogin"  placeholder="Login" type="text"> -->
+<!-- 								<span class="focus-input100"></span> -->
+<!-- 							</div> -->
+							
+<!-- 							<span class="txt1 p-b-11"> -->
+<!-- 								Password -->
+<!-- 							</span> -->
+<!-- 							<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required"> -->
+<!-- 								<span class="btn-show-pass"> -->
+<!-- 									<i class="fa fa-eye"></i> -->
+<!-- 								</span> -->
+		<!-- 						<input class="input100" type="password" name="pass" > -->
+		<!-- 						<input class="form-control" v-model="password" @keyup.enter="clickLogin"  placeholder="Password" type="text"> -->
+		<!-- 						<input class="input100" v-model="password" name="password" @keyup.enter="clickLogin"  placeholder="Password" type="password"> -->
+<!-- 								<input class="input100" v-model="current-password" name="password" @keyup.enter="clickLogin"  placeholder="Password" type="password"> -->
+<!-- 								<span class="focus-input100"></span> -->
+<!-- 							</div> -->
+						
+<!-- 							<div class="alert alert-danger" role="alert" id="alertIndex" style="display: none;" > is a danger alert—check it out!</div> -->
+<!-- 							<div v-if="error" class="alert alert-danger alert-dismissible fade show " role="alert"> -->
+<!-- 								<span class="alert-inner--text" id="alertTextIndex">{{messageError}}</span> -->
+<!-- 								<button type="button" @click="clickCloseErroLogin" class="close" data-dismiss="alert" aria-label="Close"> -->
+<!-- 									<span aria-hidden="true">&times;</span> -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+			
+<!-- 							<div class="container-login100-form-btn"> -->
+<!-- 								<button class="login100-form-btn" @click="clickLogin" > -->
+<!-- 									Login -->
+<!-- 								</button> -->
+<!-- 							</div> -->
+					
+<!-- 					</form> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+	
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+			<div id="login" class="transform-perspective-right">
+				<span class="login100-form-title p-b-32"> 
+					Login
+				</span>
+				
+				<span class="txt1 p-b-11"> 
+					Username
+				</span>
+				<div class="wrap-input100 validate-input m-b-36" data-validate = "Username is required">
+					<input class="input100" name="username" v-model="login" @keyup.enter="clickLogin"  placeholder="Login" type="text">
+					<span class="focus-input100"></span>
+				</div>
+				<span class="txt1 p-b-11"> 
+					Password
+				</span>
+				<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+					<span class="btn-show-pass">
+						<i class="fa fa-eye"></i>
+					</span>
+					<input class="input100" v-model="password" name="password" @keyup.enter="clickLogin"  placeholder="Password" type="password">
+					<span class="focus-input100"></span>
+				</div>
+					
+				<div class="flex-sb-m w-full p-b-48">
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Remember me
+						</label>
+					</div>
+
+					<div>
+						<a href="#" class="txt3">
+							Forgot Password?
+						</a>
+					</div>
+				</div>
+				<div class="alert alert-danger" role="alert" id="alertIndex" style="display: none;" > is a danger alert—check it out!</div>
+				<div v-if="error" class="alert alert-danger alert-dismissible fade show " role="alert">
+					<span class="alert-inner--text" id="alertTextIndex">{{messageError}}</span>
+					<button type="button" @click="clickCloseErroLogin" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn" @click="clickLogin" >
+						Login
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 	<section class="section section-lg section-lined overflow-hidden my-0"> -->
+<!-- 		<div class="line line-style-1 line-default line-skew"> -->
+<!-- 			<span></span> <span></span> <span></span> <span></span> -->
+<!-- 		</div> -->
+<!-- 		<div class="container line-container py-0 pb-lg"> -->
+<!-- 			<div class="row row-grid justify-content-between align-items-center"> -->
+<!-- 				<div class="col-lg-5 mb-lg-auto"> -->
+<!-- 					<div id="login" class="transform-perspective-right"> -->
+<!-- 						<div class="card shadow border-0"> -->
+<!-- 							<div class="card-body bg-secondary px-lg-5 py-lg-5"> -->
+<!-- 								<div class="form-group mb-3"> -->
+<!-- 									<div class="input-group input-group-alternative"> -->
+<!-- 										<div class="input-group-prepend"> -->
+<!-- 											<span class="input-group-text"><i class="ni ni-credit-card"></i></span> -->
+<!-- 										</div> -->
+<!-- 										<input class="form-control" v-model="login" @keyup.enter="clickLogin"  placeholder="Login" type="text"> -->
+<!-- 										<br /> -->
+<!-- 										<input class="form-control" v-model="password" @keyup.enter="clickLogin"  placeholder="Password" type="text"> -->
+<!-- 									</div> -->
+<!-- 									<div class="alert alert-danger" role="alert" id="alertIndex" style="display: none;" > is a danger alert—check it out!</div> -->
+<!-- 									<div v-if="error" class="alert alert-danger alert-dismissible fade show " role="alert"> -->
+<!-- 										<span class="alert-inner--text" id="alertTextIndex">{{messageError}}</span> -->
+<!-- 										<button type="button" @click="clickCloseErroLogin" class="close" data-dismiss="alert" aria-label="Close"> -->
+<!-- 											<span aria-hidden="true">&times;</span> -->
+<!-- 										</button> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<!-- 								<div class="text-lg-right"> -->
+<!-- 									<button @click="clickLogin" class="btn btn-primary my-4">Entrar</button> -->
+<!-- 								</div> -->
+
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</section> -->
+	
+	<script th:src="@{/vue/vue.2.5.17.js}"></script>
+	<script th:src="@{/js/axios.min.0.18.0.js}"></script>
+	<script th:src="@{/vue/login.js}"></script>
+	<!--===============================================================================================-->
+	<script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+	<script th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/select2/select2.min.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/daterangepicker/moment.min.js}"></script>
+	<script th:src="@{/vendor/daterangepicker/daterangepicker.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+<!--===============================================================================================-->
+	<script th:src="@{/js/main.js}"></script>
+</body>
+
+</html>

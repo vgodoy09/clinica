@@ -39,19 +39,25 @@ public class User implements Externalizable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name="id")
 	private Integer id;
 	@NotBlank(message="Informar um Login")
+	@Column(name="login")
 	private String login;
 	@NotBlank(message="Informar um Passoword")
+	@Column(name="password")
 	private String password;
+	@Column(name="date_birth")
 	private LocalDate dateBirth;
 	@NotBlank(message="Informar um Nome")
+	@Column(name="name")
 	private String name;
-	@Column
+	@Column(name ="number_children")
 	private Integer numberChildren;
 	@Enumerated(EnumType.STRING)
+	@Column(name="status")
     private Status status;
-	@Column
+	@Column(name="phone")
 	private String phone;
 //	@JsonIgnoreProperties("userCategory")
 //	@OneToMany(fetch = FetchType.LAZY, mappedBy = "userCategory")

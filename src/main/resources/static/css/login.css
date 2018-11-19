@@ -1,0 +1,19 @@
+@media screen and (max-width: 650px) {
+	.message {
+		display: flex !important;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.message {
+		display: none !important;
+	}
+}
+
+.hide-login-error {
+	display: none !important;
+}
+
+.show-login-error {
+	display: block !important;
+}
