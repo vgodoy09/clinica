@@ -52,6 +52,9 @@ public class Cliente extends User implements Externalizable {
 		id = (Integer) in.readObject();
 		convenio = (Boolean) in.readObject();
 	}
-	
-	
+	@Override
+	public String toString() {
+		return "Cliente [id=" + id + ", convenio=" + convenio + ", login=" + getLogin() + ", password=" + getPassword() + ", dateBirth=" + getDateBirth() + ", name="
+				+ getName() + ", numberChildren=" + getNumberChildren() + ", status=" + getStatus() + ", phone=" + getPhone() + "]";
+	}
 }

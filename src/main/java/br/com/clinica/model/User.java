@@ -38,7 +38,7 @@ import br.com.clinica.model.enuns.Status;
 public class User implements Externalizable {
 	
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
 	private Integer id;
 	@NotBlank(message="Informar um Login")
 	private String login;
@@ -187,6 +187,12 @@ public class User implements Externalizable {
 //		dreams = (List<Dream>) in.readObject();
 		status = (Status) in.readObject();
 		phone = (String) in.readObject();
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", login=" + login + ", password=" + password + ", dateBirth=" + dateBirth + ", name="
+				+ name + ", numberChildren=" + numberChildren + ", status=" + status + ", phone=" + phone + "]";
 	}
 	
 	
