@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Importação Media Portal</title>
+
+<!-- Required Stylesheets -->
+<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap-vue.css}" />
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+
+<body>
+
+	<!-- conteúdo -->
+	<header class="navbar-header">
+		<div class="row">
+			<div class="cols-2 ">
+				<h5 class="navbar-brand button-back">
+					<a href="http://www7.novotempo.com/Corporate1/sisgtv/" class="btn btn-outline-primary">Voltar</a>
+				</h5>
+			</div>
+			<div class="cols-10">
+				<h5 class="navbar-brand">
+					<span class="title-big">SisgTV </span><span>// Importação Media Portal</span>
+				</h5>
+			</div>
+		</div>
+	</header>
+
+	<div id="app" class="form-row content">
+		<div class="form-group col-md-2 menu-left">
+			<button type="button" @click="clickImportCreated" class="btn btn-outline-info btn-lg btn-block">Importar dados criados</button>
+			<button type="button" @click="clickImportUpdated" class="btn btn-outline-primary btn-lg btn-block">Importar dados atualizados</button>
+			<button type="button" @click="clickImportDeleted" class="btn btn-outline-danger btn-lg btn-block">Importar dados removidos</button>
+		</div>
+
+		<div v-if="loadingImport" style="width: 100%; text-align: center;">
+			<img alt="" th:src="@{/img/loading.gif}">
+		</div>
+		
+		<div v-else class="form-group col-md-9" style="max-height: 650px; overflow-y: auto; padding: 0.25rem;">
+
+			<!-- tabela de importação -->
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Registro</th>
+						<th scope="col">Último processamento</th>
+						<th scope="col">Falhas</th>
+						<th scope="col">Importado</th>
+						<th scope="col">Método</th>
+						<th scope="col">Detalhes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="process in processData">
+						<td>{{process.id}}</td>
+						<td>{{process.registeredByUserId}}</td>
+						<td>{{process.lastProcessDate}}</td>
+						<td>
+							<h3>
+								<span v-if="process.error > 0" class="badge badge-danger"> {{process.error}} </span> <span v-if="process.error == 0"
+									class="badge badge-light"> {{process.error}} </span>
+							</h3>
+						</td>
+						<td>
+							<h3>
+								<span class="badge badge-primary">{{process.success}}</span>
+							</h3>
+						</td>
+						<td>{{process.actionMethod}}</td>
+						<td style="text-align: center; width: 30px; cursor: pointer;"><img alt="" @click="showModalErrors(process.id)" th:src="@{/img/detail.png}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<!-- MODAL -->
+		<div>
+			<b-modal ref="modalRef" size="lg" hide-footer title="Erros ao importar">
+			<div class="d-block text-center">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Asset Id</th>
+							<th scope="col">Tipo de Erro</th>
+							<th scope="col">Descrição</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr v-for="detail in agentDetailData">
+							<td>{{detail.numberMediaPortal}}</td>
+							<td>{{detail.typeError}}</td>
+							<td>{{detail.description}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- scripts -->
+	<script th:src="@{/vue/vue.2.5.17.js}"></script>
+	<script th:src="@{/js/axios.min.0.18.0.js}"></script>
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/vue/bootstrap-vue.js}"></script>
+	<script th:src="@{/vue/import.js}"></script>
+</body>
+</html>

@@ -47,7 +47,7 @@ function loggerInstance(vue) {
 			vue.error = true;
 		}
 		else {
-			window.location.href = "/clinica/admin";
+			window.location.href = "/clinica";
 		}
 		
 	}).catch(error => {

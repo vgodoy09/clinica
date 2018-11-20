@@ -4,7 +4,7 @@ new Vue({
 	el: "#app",
 	data: {
 		userLogger: null,
-		processData: [],
+		pacienteData: [],
 		agentDetailData: [],
 		loadingImport: false
 	},
@@ -19,8 +19,9 @@ new Vue({
 	methods: {
 
 		listProcess() {
-			axios.get("/import/listprocess").then(resp => {
-				this.processData = resp.data;
+			axios.get("/clinica/api/clientes").then(resp => {
+				console.log('clientes');
+				this.pacienteData = resp.data;
 			})
 		},
 

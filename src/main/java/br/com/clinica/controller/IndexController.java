@@ -21,7 +21,18 @@ public class IndexController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-			mv.setViewName("redirect:/admin");
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("admin");
+		}
+		return mv;
+	}
+	
+	@GetMapping("/paciente")
+	public ModelAndView paciente() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("tabela_paciente");
 		}
 		return mv;
 	}
