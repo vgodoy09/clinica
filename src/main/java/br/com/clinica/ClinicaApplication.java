@@ -1,5 +1,7 @@
 package br.com.clinica;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -7,6 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
+import br.com.clinica.model.Cliente;
+import br.com.clinica.model.enuns.Status;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
 import br.com.clinica.repository.MedicoRepository;
@@ -36,29 +40,29 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	@Override
 	public void run(String... args) throws Exception {
 //			Cliente cliente = new Cliente();
-//		 	cliente.setName("Miriam do Prado Godoy");
-//		    cliente.setLogin("miriam.godoy");
+//		 	cliente.setName("Jayne Moraes");
+//		    cliente.setLogin("jayne.moraes");
 //		    cliente.setNumberChildren(2);
-//		    cliente.setPassword("ika3b919");
+//		    cliente.setPassword("12345678");
 //		    cliente.setDateBirth(LocalDate.now());
 //		    cliente.setConvenio(true);
 //		    cliente.setStatus(Status.ATIVO);
 //		    cliente.setPhone("1147906017");
 //		    Cliente save = clienteRepository.save(cliente);
 //		    System.out.println(save.toString());
-		
+//		
 //		Especialidade e = new Especialidade();
 //		e.setName("Cardiologista");
 //		especialidadeRepository.save(e);
 //		Especialidade e1 = new Especialidade();
 //		e1.setName("Anestesiologia");
 //		especialidadeRepository.save(e1);
-		
+//		
 //		Medico medico = new Medico();
 //		medico.setName("Jose Roberto de Godoy");
 //	    medico.setLogin("joseroberto.godoy");
 //	    medico.setNumberChildren(2);
-//	    medico.setPassword("kzgxgk18");
+//	    medico.setPassword("12345678");
 //	    medico.setDateBirth(LocalDate.now());
 //	    medico.setEspecialidade(new Especialidade(1, "Cardiologista"));
 //	    medico.setStatus(Status.ATIVO);

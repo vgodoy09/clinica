@@ -20,17 +20,19 @@ new Vue({
 
 		listProcess() {
 			axios.get("/clinica/api/clientes").then(resp => {
-				console.log('clientes');
 				this.pacienteData = resp.data;
 			})
 		},
 
 		clickImportCreated: function() {
-			this.loadingImport = true;
-			axios.post("/import/created/"+this.userLogger).then(resp => {
-				this.loadingImport = false;
-				this.listProcess();
+//			this.loadingImport = true;
+			axios.get("/clinica/paciente/created").then(resp => {
+				this.pacienteData = resp.data;
 			})
+//			axios.post("/import/created/"+this.userLogger).then(resp => {
+//				this.loadingImport = false;
+//				this.listProcess();
+//			})
 		},
 		
 		clickImportUpdated: function() {
