@@ -10,7 +10,7 @@ import br.com.clinica.model.dto.UserDTO;
 public interface UserRepository extends JpaRepository<UserDTO, Integer> {
 	@Query(value = 
 			"select                      " +
-			"	u.id,                    " +
+			"	 u.id,                   " +
 			"    u.date_birth,           " +
 			"    u.login,                " +
 			"    u.name,                 " +
@@ -19,12 +19,26 @@ public interface UserRepository extends JpaRepository<UserDTO, Integer> {
 			"    u.phone,                " +
 			"    u.status                " +
 			"from (	select               " +
-			"			*            	 " +
-			"		from cliente         " +
+			"	       c.id,             " +
+			"          c.date_birth,     " +
+			"          c.login,          " +
+			"          c.name,           " +
+			"          c.number_children," +
+			"          c.password,       " +
+			"          c.phone,          " +
+			"          c.status          " +
+			"		from cliente c       " +
 			"		union all            " +
 			"		select               " +
-			"			*            	 " +
-			"		from medico)         " +
+			"	       m.id,             " +
+			"          m.date_birth,     " +
+			"          m.login,          " +
+			"          m.name,           " +
+			"          m.number_children," +
+			"          m.password,       " +
+			"          m.phone,          " +
+			"          m.status          " +
+			"		from medico m)       " +
 			"as u                        " +
 			"where u.login = ?1          " +
 			"	  and u.password = ?2    " +

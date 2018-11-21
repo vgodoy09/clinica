@@ -12,6 +12,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import br.com.clinica.model.Cliente;
 import br.com.clinica.model.enuns.Status;
 import br.com.clinica.repository.ClienteRepository;
+import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
 import br.com.clinica.repository.MedicoRepository;
 import br.com.clinica.repository.UserRepository;
@@ -27,6 +28,8 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	MedicoRepository medicoRepository;
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	ConsultasRepository consultasRepository;
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -39,10 +42,39 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 
 	@Override
 	public void run(String... args) throws Exception {
+			
+//		Medico medico = new Medico(4);
+//		medico.setName("Jose Roberto de Godoy");
+//	    medico.setLogin("joseroberto.godoy");
+//	    medico.setNumberChildren(2);
+//	    medico.setPassword("12345678");
+//	    medico.setDateBirth(LocalDate.now());
+//	    medico.setEspecialidade(new Especialidade(1, "Cardiologista"));
+//	    medico.setStatus(Status.ATIVO);
+//	    medico.setPhone("1147906017");
+//	    
+//		Cliente cliente = new Cliente(2);
+//	 	cliente.setName("Jayne Moraes");
+//	    cliente.setLogin("jayne.moraes");
+//	    cliente.setNumberChildren(2);
+//	    cliente.setPassword("12345678");
+//	    cliente.setDateBirth(LocalDate.now());
+//	    cliente.setConvenio(true);
+//	    cliente.setStatus(Status.ATIVO);
+//	    cliente.setPhone("1147906017");
+//		
+//			Consulta consulta = new Consulta();
+//			consulta.setDataConsulta(LocalDate.now());
+//		    consulta.setDescricao("Cardiologista com Dr Lenio");
+//		    consulta.setStatus(Status.ATIVO);
+//		    consulta.setMedico(medico);
+//		    consulta.setCliente(cliente);
+//		    consultasRepository.save(consulta);
+//		    
 //			Cliente cliente = new Cliente();
-//		 	cliente.setName("Jayne Moraes");
-//		    cliente.setLogin("jayne.moraes");
-//		    cliente.setNumberChildren(2);
+//		 	cliente.setName("Matheus Gregorio");
+//		    cliente.setLogin("matheus.gregorio");
+//		    cliente.setNumberChildren(0);
 //		    cliente.setPassword("12345678");
 //		    cliente.setDateBirth(LocalDate.now());
 //		    cliente.setConvenio(true);

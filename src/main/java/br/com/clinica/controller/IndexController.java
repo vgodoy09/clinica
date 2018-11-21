@@ -22,7 +22,37 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
 //			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("admin");
+			mv = new ModelAndView("tabela_consulta");
+		}
+		return mv;
+	}
+	
+	@GetMapping("/consulta")
+	public ModelAndView consulta() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("tabela_consulta");
+		}
+		return mv;
+	}
+	
+	@GetMapping("/medico")
+	public ModelAndView medicos() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("tabela_medico");
+		}
+		return mv;
+	}
+	
+	@GetMapping("/especialidade")
+	public ModelAndView especialidade() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("tabela_especialidade");
 		}
 		return mv;
 	}

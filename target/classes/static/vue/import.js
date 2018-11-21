@@ -5,12 +5,18 @@ new Vue({
 	data: {
 		userLogger: null,
 		pacienteData: [],
+		consultaData: [],
+		especialidadeData: [],
+		medicoData: [],
 		agentDetailData: [],
 		loadingImport: false
 	},
 
 	mounted() {
 		this.listProcess();
+		this.listConsultas();
+		this.listEspecialidades();
+		this.listMedicos();
 
 		let url = window.location.pathname;
 		this.userLogger = url.split("/")[2];
@@ -23,11 +29,31 @@ new Vue({
 				this.pacienteData = resp.data;
 			})
 		},
+		
+		listConsultas() {
+			axios.get("/clinica/api/consultas").then(resp => {
+				this.consultaData = resp.data;
+			})
+		},
+		
+		listEspecialidades() {
+			axios.get("/clinica/api/especialidades").then(resp => {
+				this.especialidadeData = resp.data;
+			})
+		},
+		
+		listMedicos() {
+			axios.get("/clinica/api/medicos").then(resp => {
+				this.medicoData = resp.data;
+			})
+		},
 
 		clickImportCreated: function() {
-//			this.loadingImport = true;
-			axios.get("/clinica/paciente/created").then(resp => {
-				this.pacienteData = resp.data;
+			this.loadingImport = true;
+			axios.put("/clinica/paciente/created").then(resp => {
+				this.loadingImport = false;
+				this.listProcess();
+//				this.pacienteData = resp.data;
 			})
 //			axios.post("/import/created/"+this.userLogger).then(resp => {
 //				this.loadingImport = false;
