@@ -70,7 +70,7 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
+                <li>
                     <a href="http://localhost:8080/clinica">
                         <i class="ti-panel"></i>
                         <p>Consultas</p>
@@ -82,7 +82,7 @@
                         <p>Medicos</p>
                     </a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="http://localhost:8080/clinica/paciente">
                         <i class="ti-user"></i>
                         <p>Pacientes</p>
@@ -189,7 +189,7 @@
                                                     <td>
                                                         <div class="btn-group">
 					                                      <a href="http://localhost:8080/clinica/paciente/created" class="btn btn-primary" ><i class="icon_plus_alt2"></i></a>
-					                                      <button type="button" @click="clickImportUpdated" class="btn btn-success" ><i class="icon_check_alt2"></i></button>
+					                                      <button type="button" @click="clickUpdatePaciente(paciente)" class="btn btn-success" ><i class="icon_check_alt2"></i></button>
 					                                      <button type="button" @click="clickImportDeleted" class="btn btn-danger" ><i class="icon_close_alt2"></i></button>
 						                                </div>
                                                     </td>

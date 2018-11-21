@@ -71,9 +71,8 @@ public class IndexController {
 	public ModelAndView cadastropaciente() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("paciente");
-			mv.addObject("titulo", "Cadastro Paciente");
+			mv.setViewName("paciente");
+//			mv = new ModelAndView("paciente");
 		}
 		return mv;
 	}

@@ -58,10 +58,10 @@ new Vue({
 
 	methods: {
 
+		
 		listProcess() {
 			axios.get("/clinica/api/clientes").then(resp => {
 				this.pacienteData = resp.data;
-				console.log('lista de cliente ' + pacienteData)
 			})
 		},
 		
@@ -85,6 +85,13 @@ new Vue({
 
 		clickNovoPaciente: function() {
 			createPaciente(this);
+		},
+		
+		clickUpdatePaciente: function(paciente) {
+			this.cliente = paciente;
+			console.log(paciente);
+			console.log(this.cliente.name);
+			window.location.href = "/clinica/cadastropaciente";
 		},
 		
 		clickImportUpdated: function() {
@@ -120,10 +127,10 @@ new Vue({
 
 function createPaciente(vue) {
 	vue.loadingImport = true;
-	console.log('JSON ' + JSON.stringify(vue.cliente));
 	axios.post("/clinica/api/clientes", vue.cliente).then(resp => {
 		vue.loadingImport = false;
 		vue.listProcess();
+		window.location.href = "/clinica/paciente";
 	})
 }
 
