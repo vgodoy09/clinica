@@ -1,7 +1,5 @@
 package br.com.clinica;
 
-import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -9,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
-import br.com.clinica.model.Cliente;
-import br.com.clinica.model.enuns.Status;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;

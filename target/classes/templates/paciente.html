@@ -115,115 +115,121 @@
             </div>
         </nav>
 
-
-        <div class="content">
-            <div class="container-fluid">
-                    <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="card card-user">
-                                    <div class="image">
-                                        <img src="assets/img/background.jpg" alt="..."/>
-                                    </div>
-                                    <div class="content">
-                                        <div class="author">
-                                          <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
-                                          <h4 class="title">Daniel<br />
-                                             <a href="#"><small>@daniel</small></a>
-                                          </h4>
-                                        </div>
-                                        <p class="description text-center">
-                                            "I like the way you work it <br>
-                                            No diggity <br>
-                                            I wanna bag it up"
-                                        </p>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-7">
-                                <div class="card">
-                                    <div class="header">
-                                        <h4 class="title">Editar Perfil</h4>
-                                    </div>
-                                    <div class="content">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input type="password" class="form-control border-input" placeholder="Password" value="Digite sua senha">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control border-input" placeholder="Email">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>First Name</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Last Name</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Address</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>City</label>
-                                                        <input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Country</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Country" value="Australia">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Postal Code</label>
-                                                        <input type="number" class="form-control border-input" placeholder="ZIP Code">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-            </div>
-        </div>
-
+		<div id="app">
+	        <div class="content">
+	            <div class="container-fluid">
+	                    <div class="row">
+	                            <div class="col-lg-4 col-md-5">
+	                                <div class="card card-user">
+	                                    <div class="image">
+	                                        <img src="assets/img/background.jpg" alt="..."/>
+	                                    </div>
+	                                    <div class="content">
+	                                        <div class="author">
+	                                          <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+	                                          <h4 class="title">Daniel<br />
+	                                             <a href="#"><small>@daniel</small></a>
+	                                          </h4>
+	                                        </div>
+	                                        <p class="description text-center">
+	                                            "I like the way you work it <br>
+	                                            No diggity <br>
+	                                            I wanna bag it up"
+	                                        </p>
+	                                    </div>
+	                                    <hr>
+	                                </div>
+	                            </div>
+	                            <div class="col-lg-8 col-md-7">
+	                                <div class="card">
+	                                    <div class="header">
+	                                        <h4 class="title">Perfil</h4>
+	                                    </div>
+	                                    <div class="content">
+	                                        <form>
+	                                            <div class="row">
+	                                                <div class="col-md-6">
+	                                                    <div class="form-group">
+	                                                        <label>Nome</label>
+	                                                        <input name="nome" type="text" v-model="cliente.name"  class="form-control border-input" placeholder="Username" autofocus>
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Login</label>
+	                                                        <input name="login" v-model="cliente.login"  type="text" class="form-control border-input" placeholder="Login" >
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Password</label>
+	                                                        <input name="password" v-model="cliente.password"  type="password" class="form-control border-input" placeholder="Password">
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	        
+	                                            <div class="row">
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Numero De Filhos</label>
+	                                                        <input name="numberChildren" v-model="cliente.numberChildren"  type="text" class="form-control border-input" placeholder="Numero de Filhos" >
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Data de Aniversario</label>
+	                                                        <input name="dateBirth" v-model="cliente.dateBirth" type="text" class="form-control border-input" placeholder="Data de Aniversario">
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-6">
+	                                                    <div class="form-group">
+	                                                        <label>Telefone</label>
+	                                                        <input name="phone" v-model="cliente.phone" type="text" class="form-control border-input" placeholder="Seu Telefone" >
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	        
+	<!--                                             <div class="row"> -->
+	<!--                                                 <div class="col-md-12"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Address</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                             </div> -->
+	        
+	<!--                                             <div class="row"> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>City</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="City" value="Melbourne"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Country</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="Country" value="Australia"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Postal Code</label> -->
+	<!--                                                         <input type="number" class="form-control border-input" placeholder="ZIP Code"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                             </div> -->
+	                                            <div class="text-center">
+	                                                <button @click="clickNovoPaciente" type="button" class="btn btn-info btn-fill btn-wd">Submeter</button>
+	                                            </div>
+	                                            <div class="clearfix"></div>
+	                                        </form>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	            </div>
+	        </div>
+		</div>
 
         <footer class="footer">
             <div class="container-fluid">
@@ -270,5 +276,12 @@
 
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script th:src="@{/assets/js/demo.js}"></script>
+	
+	<script th:src="@{/vue/vue.2.5.17.js}"></script>
+	<script th:src="@{/js/axios.min.0.18.0.js}"></script>
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/vue/bootstrap-vue.js}"></script>
+	<script th:src="@{/vue/import.js}"></script>
 
 </html>

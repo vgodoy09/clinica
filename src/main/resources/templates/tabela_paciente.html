@@ -188,7 +188,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="btn-group">
-					                                      <button type="button" @click="clickImportCreated" class="btn btn-primary" ><i class="icon_plus_alt2"></i></button>
+					                                      <a href="http://localhost:8080/clinica/paciente/created" class="btn btn-primary" ><i class="icon_plus_alt2"></i></a>
 					                                      <button type="button" @click="clickImportUpdated" class="btn btn-success" ><i class="icon_check_alt2"></i></button>
 					                                      <button type="button" @click="clickImportDeleted" class="btn btn-danger" ><i class="icon_close_alt2"></i></button>
 						                                </div>
@@ -279,21 +279,6 @@
 	<script th:src="@{/js/popper.min.js}"></script>
 	<script th:src="@{/vue/bootstrap-vue.js}"></script>
 	<script th:src="@{/vue/import.js}"></script>
-    
-    <script>
-            export default {
-              data () {
-                return {
-                  fields: [ 'first_name', 'last_name', 'show_details' ],
-                  items: [
-                    { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-                    { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-                    { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson', _showDetails: true },
-                    { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-                  ]
-                }
-              }
-            }
-    </script>
+  
 
 </html>

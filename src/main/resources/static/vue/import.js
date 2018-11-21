@@ -9,7 +9,41 @@ new Vue({
 		especialidadeData: [],
 		medicoData: [],
 		agentDetailData: [],
-		loadingImport: false
+		loadingImport: false,
+		pacientenome: null,
+		cliente: {
+			id: null,
+			name: null,
+			login: null,
+			password: null,
+			numberChildren: null,
+			phone: null,
+			status: "ATIVO",
+			dateBirth: null,
+			convenio: null
+		},
+		medico: {
+			id: null,
+			name: null,
+			login: null,
+			password: null,
+			numberChildren: null,
+			phone: null,
+			status: "ATIVO",
+			dateDate: null,
+			especialidade: null
+		},
+		especialidade: {
+			id: null,
+			name: null
+		},
+		consulta: {
+			id: null,
+			descricao: null,
+			dataConsulta: null,
+			medico: null,
+			cliente: null
+		}
 	},
 
 	mounted() {
@@ -27,6 +61,7 @@ new Vue({
 		listProcess() {
 			axios.get("/clinica/api/clientes").then(resp => {
 				this.pacienteData = resp.data;
+				console.log('lista de cliente ' + pacienteData)
 			})
 		},
 		
@@ -48,17 +83,8 @@ new Vue({
 			})
 		},
 
-		clickImportCreated: function() {
-			this.loadingImport = true;
-			axios.put("/clinica/paciente/created").then(resp => {
-				this.loadingImport = false;
-				this.listProcess();
-//				this.pacienteData = resp.data;
-			})
-//			axios.post("/import/created/"+this.userLogger).then(resp => {
-//				this.loadingImport = false;
-//				this.listProcess();
-//			})
+		clickNovoPaciente: function() {
+			createPaciente(this);
 		},
 		
 		clickImportUpdated: function() {
@@ -91,6 +117,15 @@ new Vue({
 
 })
 
+
+function createPaciente(vue) {
+	vue.loadingImport = true;
+	console.log('JSON ' + JSON.stringify(vue.cliente));
+	axios.post("/clinica/api/clientes", vue.cliente).then(resp => {
+		vue.loadingImport = false;
+		vue.listProcess();
+	})
+}
 
 //faz importação 
 function importInstance(vue) {

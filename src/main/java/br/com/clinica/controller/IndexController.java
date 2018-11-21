@@ -67,12 +67,23 @@ public class IndexController {
 		return mv;
 	}
 	
+	@GetMapping("/cadastropaciente")
+	public ModelAndView cadastropaciente() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/admin");
+			mv = new ModelAndView("paciente");
+			mv.addObject("titulo", "Cadastro Paciente");
+		}
+		return mv;
+	}
+	
 	@GetMapping("/paciente/created")
 	public ModelAndView created() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
 //			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("paciente");
+			mv = new ModelAndView("redirect:/cadastropaciente");
 		}
 		return mv;
 	}
