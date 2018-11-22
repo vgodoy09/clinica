@@ -12,6 +12,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 
 import br.com.clinica.model.Cliente;
+import br.com.clinica.model.Consulta;
+import br.com.clinica.model.Especialidade;
+import br.com.clinica.model.Medico;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
@@ -46,6 +49,24 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	public Map<Integer, Cliente> mapCliente() {
 		HashMap<Integer, Cliente> mapClient = new HashMap<>();
 		return mapClient;
+	}
+	
+	@Bean(name="especialidade")
+	public Map<Integer, Especialidade> mapEspecialidade() {
+		HashMap<Integer, Especialidade> mapEspecialidade = new HashMap<>();
+		return mapEspecialidade;
+	}
+	
+	@Bean(name="consulta")
+	public Map<Integer, Consulta> mapConsulta() {
+		HashMap<Integer, Consulta> mapConsulta = new HashMap<>();
+		return mapConsulta;
+	}
+	
+	@Bean(name="medico")
+	public Map<Integer, Medico> mapMedico() {
+		HashMap<Integer, Medico> mapMedico = new HashMap<>();
+		return mapMedico;
 	}
 	
 	@Override
