@@ -24,8 +24,10 @@ new Vue({
 	
 	methods: {
 		getMedico(id) {
+			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
 				this.medico = resp.data;
+				console.log(this.medico.name);
 			})
 		},
 		
