@@ -74,7 +74,8 @@ public class StateClient {
 	
 	@GetMapping("getMedicoMemory/{id}")
 	public Medico getMedico(@PathVariable("id") Integer id) {
-		return mapMedico.get(id);
+		Medico medico = mapMedico.get(id);
+		return medico;
 	}
 	
 	
