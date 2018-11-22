@@ -40,6 +40,12 @@ public class Cliente extends User implements Externalizable {
 		this.convenio = convenio;
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(id);

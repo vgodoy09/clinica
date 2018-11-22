@@ -47,7 +47,7 @@ new Vue({
 	},
 
 	mounted() {
-		this.listProcess();
+		this.listPacientes();
 		this.listConsultas();
 		this.listEspecialidades();
 		this.listMedicos();
@@ -59,7 +59,7 @@ new Vue({
 	methods: {
 
 		
-		listProcess() {
+		listPacientes() {
 			axios.get("/clinica/api/clientes").then(resp => {
 				this.pacienteData = resp.data;
 			})
@@ -89,29 +89,18 @@ new Vue({
 		
 		clickUpdatePaciente: function(paciente) {
 			this.cliente = paciente;
+			alert(this.cliente.name);
 			console.log(paciente);
 			console.log(this.cliente.name);
 			window.location.href = "/clinica/cadastropaciente";
 		},
 		
-		clickImportUpdated: function() {
-			this.loadingImport = true;
-			axios.put("/import/updated/"+this.userLogger).then(resp => {
-				this.loadingImport = false;
-				this.listProcess();
-			})
+		clickDeletePaciente: function(paciente) {
+			deletePaciente(this,paciente);
 		},
 		
-		clickImportDeleted: function() {
-			this.loadingImport = true;
-			axios.delete("/import/deleted/"+this.userLogger).then(resp => {
-				this.loadingImport = false;
-				this.listProcess();
-			})
-		},
-
-		clickRefreshDelete: function() {
-			refreshExclusionInstance(this);
+		clickGetPaciente: function(paciente) {
+			getPaciente(this,paciente);
 		},
 
 		showModalErrors: function(id) {
@@ -129,37 +118,32 @@ function createPaciente(vue) {
 	vue.loadingImport = true;
 	axios.post("/clinica/api/clientes", vue.cliente).then(resp => {
 		vue.loadingImport = false;
-		vue.listProcess();
+		vue.listPacientes();
 		window.location.href = "/clinica/paciente";
 	})
 }
 
-//faz importação 
-function importInstance(vue) {
-
-	if(vue.userLogger != null) {
-		vue.loadingImport = true;
-
-		//faz importação 
-		axios.get("/import/"+vue.userLogger).then(response => {
-			console.log(response.data);	
-			vue.listProcess();
-			vue.loadingImport = false;
-		})
-	}
+function getPaciente(vue, cliente) {
+	vue.cliente = cliente;
+	let cli = JSON.stringify(cliente);
+	vue.cliente = JSON.parse(cli);
+	console.log(cli);
+	console.log(JSON.parse(cli));
+	console.log(cliente);
+	console.log(vue.cliente.id);
 }
 
-function refreshExclusionInstance(vue) {
-	if(vue.userLogger != null) {
-		vue.loadingImport = true;
-
-		//faz importação 
-		axios.get("/refreshremove/"+vue.userLogger).then(response => {
-			console.log(response.data);	
-			vue.listProcess();
-			vue.loadingImport = false; 
-		})
-	}
+function deletePaciente(vue, paciente) {
+	vue.loadingImport = true;
+	
+	console.log(paciente.id);
+	axios.delete("/clinica/api/clientes"+ paciente.id, paciente).then(resp => {
+		vue.loadingImport = false;
+		vue.listPacientes();
+		window.location.href = "/clinica/paciente";
+	})
 }
+
+
 
 
