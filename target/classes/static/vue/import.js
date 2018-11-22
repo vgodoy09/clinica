@@ -52,11 +52,19 @@ new Vue({
 		this.listEspecialidades();
 		this.listMedicos();
 
-		let url = window.location.pathname;
-		this.userLogger = url.split("/")[2];
+		var id = location.search.split('id=')[1];
+		if(id != null && typeof id != "undefined") 
+			this.getPaciente(id);
 	},
 
 	methods: {
+		
+		getPaciente(id) {
+			axios.get("/clinica/getClientMemory/"+id).then(resp => {
+				this.cliente = resp.data;
+				console.log(this.cliente);
+			})
+		},
 		
 		clickClinica: function() {
 			window.location.href = "/clinica/";
@@ -119,11 +127,9 @@ new Vue({
 		},
 		
 		clickUpdatePaciente: function(paciente) {
-			this.cliente = paciente;
-			alert(this.cliente.name);
-			console.log(paciente);
-			console.log(this.cliente.name);
-			window.location.href = "/clinica/cadastropaciente";
+			axios.post("/clinica/saveInMemory", paciente).then(resp => {
+				window.location.href = "/clinica/cadastropaciente?id=" + paciente.id;
+			})
 		},
 		
 		clickCreatePaciente: function() {

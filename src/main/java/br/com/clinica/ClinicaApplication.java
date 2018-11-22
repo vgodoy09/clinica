@@ -1,12 +1,17 @@
 package br.com.clinica;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
 
+import br.com.clinica.model.Cliente;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
@@ -35,7 +40,14 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	public static void main(String[] args) {
 		SpringApplication.run(ClinicaApplication.class, args);
 	}
+	
 
+	@Bean(name="paciente")
+	public Map<Integer, Cliente> mapCliente() {
+		HashMap<Integer, Cliente> mapClient = new HashMap<>();
+		return mapClient;
+	}
+	
 	@Override
 	public void run(String... args) throws Exception {
 			
