@@ -57,7 +57,26 @@ new Vue({
 	},
 
 	methods: {
-
+		
+		clickClinica: function() {
+			window.location.href = "/clinica/";
+		},
+		
+		clickMedico: function() {
+			window.location.href = "/clinica/medico";
+		},
+		
+		clickPaciente: function() {
+			window.location.href = "/clinica/paciente";
+		},
+		
+		clickEspecialidade: function() {
+			window.location.href = "/clinica/especialidade";
+		},
+		
+		clickLogout: function() {
+			window.location.href = "/clinica/logout";
+		},
 		
 		listPacientes() {
 			axios.get("/clinica/api/clientes").then(resp => {
@@ -87,12 +106,62 @@ new Vue({
 			createPaciente(this);
 		},
 		
+		clickNovoMedico: function() {
+			createMedico(this);
+		},
+		
+		clickNovoConsulta: function() {
+			createConsulta(this);
+		},
+		
+		clickNovaEspecialidade: function() {
+			createEspecialidade(this);
+		},
+		
 		clickUpdatePaciente: function(paciente) {
 			this.cliente = paciente;
 			alert(this.cliente.name);
 			console.log(paciente);
 			console.log(this.cliente.name);
 			window.location.href = "/clinica/cadastropaciente";
+		},
+		
+		clickCreatePaciente: function() {
+			window.location.href = "/clinica/cadastropaciente";
+		},
+		
+		
+		clickCreatedEspecialidade: function() {
+			window.location.href = "/clinica/cadastroespecialidade";
+		},
+		
+		clickUpdatedEspecialidade: function() {
+			window.location.href = "/clinica/cadastroespecialidade";
+		},
+		clickDeletedEspecialidade: function(especialidade) {
+			deleteEspecialidade(this,especialidade);
+		},
+		
+		clickCreatedMedico: function() {
+			window.location.href = "/clinica/cadastromedico";
+		},
+		
+		clickUpdatedMedico: function() {
+			window.location.href = "/clinica/cadastromedico";
+		},
+		clickDeletedMedico: function(medico) {
+			deleteMedicos(this,medico);
+		},
+		
+		clickCreatedConsulta: function() {
+			window.location.href = "/clinica/cadastroconsulta";
+		},
+		
+		clickUpdatedConsulta: function() {
+			window.location.href = "/clinica/cadastroconsulta";
+		},
+		clickDeletedConsulta: function(consulta) {
+			deleteConsultas(this,consulta);
 		},
 		
 		clickDeletePaciente: function(paciente) {
@@ -114,12 +183,34 @@ new Vue({
 })
 
 
+function createEspecialidade(vue) {
+	vue.loadingImport = true;
+	axios.post("/clinica/api/especialidades", vue.especialidade).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/especialidade";
+	})
+}
+
 function createPaciente(vue) {
 	vue.loadingImport = true;
 	axios.post("/clinica/api/clientes", vue.cliente).then(resp => {
 		vue.loadingImport = false;
-		vue.listPacientes();
 		window.location.href = "/clinica/paciente";
+	})
+
+}
+function createMedico(vue) {
+	vue.loadingImport = true;
+	axios.post("/clinica/api/medicos", vue.medico).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/medico";
+	})
+}
+function createConsulta(vue) {
+	vue.loadingImport = true;
+	axios.post("/clinica/api/consultas", vue.consulta).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/consulta";
 	})
 }
 
@@ -137,10 +228,39 @@ function deletePaciente(vue, paciente) {
 	vue.loadingImport = true;
 	
 	console.log(paciente.id);
-	axios.delete("/clinica/api/clientes"+ paciente.id, paciente).then(resp => {
+	axios.delete("/clinica/api/clientes/"+ paciente.id, paciente).then(resp => {
 		vue.loadingImport = false;
-		vue.listPacientes();
 		window.location.href = "/clinica/paciente";
+	})
+}
+
+function deleteEspecialidade(vue, especialidade) {
+	vue.loadingImport = true;
+	
+	console.log(especialidade.id);
+	axios.delete("/clinica/api/especialidades/"+ especialidade.id, especialidade).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/especialidade";
+	})
+}
+
+function deleteConsultas(vue, consulta) {
+	vue.loadingImport = true;
+	
+	console.log(consulta.id);
+	axios.delete("/clinica/api/consultas/"+ consulta.id, consulta).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/consulta";
+	})
+}
+
+function deleteMedicos(vue, medico) {
+	vue.loadingImport = true;
+	
+	console.log(medico.id);
+	axios.delete("/clinica/api/medicos/"+ medico.id, medico).then(resp => {
+		vue.loadingImport = false;
+		window.location.href = "/clinica/medico";
 	})
 }
 

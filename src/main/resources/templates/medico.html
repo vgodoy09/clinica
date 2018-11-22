@@ -42,42 +42,37 @@
 </head>
 <body>
 
-<div class="wrapper">
+<div id="app" class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
 
-    <!--
-		Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
-		Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
-	-->
-
     	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="http://localhost:8080/clinica" class="simple-text">
+           <div class="logo">
+                <a @click="clickClinica" href="#">
                     Clinica
                 </a>
             </div>
 
             <ul class="nav">
                 <li >
-                    <a href="http://localhost:8080/clinica">
+                    <a @click="clickClinica" href="#" class="simple-text">
                         <i class="ti-panel"></i>
                         <p>Consultas</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="http://localhost:8080/clinica/medico">
+                    <a @click="clickMedico" href="#">
                         <i class="ti-user"></i>
                         <p>Medicos</p>
                     </a>
                 </li>
-                <li>
-                    <a href="http://localhost:8080/clinica/paciente">
+                <li >
+                    <a @click="clickPaciente" href="#">
                         <i class="ti-user"></i>
                         <p>Pacientes</p>
                     </a>
                 </li>
-                <li>
-                    <a href="http://localhost:8080/clinica/especialidade">
+                <li >
+                    <a @click="clickEspecialidade" href="#">
                         <i class="ti-text"></i>
                         <p>Especialidades</p>
                     </a>
@@ -106,7 +101,7 @@
 								<p>Settings</p>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://localhost:8080/clinica/logout">Logout</a></li>
+                                <li><a @click="clickLogout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -114,7 +109,6 @@
                 </div>
             </div>
         </nav>
-
 
         <div class="content">
             <div class="container-fluid">
@@ -142,79 +136,85 @@
                             </div>
                             <div class="col-lg-8 col-md-7">
                                 <div class="card">
-                                    <div class="header">
-                                        <h4 class="title">Editar Perfil</h4>
-                                    </div>
-                                    <div class="content">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>Username</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Username" value="michael23">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3">
-                                                    <div class="form-group">
-                                                        <label>Password</label>
-                                                        <input type="password" class="form-control border-input" placeholder="Password" value="Digite sua senha">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">Email address</label>
-                                                        <input type="email" class="form-control border-input" placeholder="Email">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>First Name</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Company" value="Chet">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>Last Name</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Last Name" value="Faker">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Address</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia">
-                                                    </div>
-                                                </div>
-                                            </div>
-        
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>City</label>
-                                                        <input type="text" class="form-control border-input" placeholder="City" value="Melbourne">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Country</label>
-                                                        <input type="text" class="form-control border-input" placeholder="Country" value="Australia">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label>Postal Code</label>
-                                                        <input type="number" class="form-control border-input" placeholder="ZIP Code">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
-                                            </div>
+                                   <div class="header">
+	                                        <h4 class="title">Perfil </h4>
+	                                    </div>
+	                                    <div class="content">
+	                                        <form>
+	                                            <div class="row">
+	                                                <div class="col-md-6">
+	                                                    <div class="form-group">
+	                                                        <label>Nome</label>
+	                                                        <input name="nome" type="text" v-model="medico.name"  class="form-control border-input" placeholder="Username" autofocus>
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Login</label>
+	                                                        <input name="login" v-model="medico.login"  type="text" class="form-control border-input" placeholder="Login" >
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Password</label>
+	                                                        <input name="password" v-model="medico.password"  type="password" class="form-control border-input" placeholder="Password">
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	        
+	                                            <div class="row">
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Numero De Filhos</label>
+	                                                        <input name="numberChildren" v-model="medico.numberChildren"  type="text" class="form-control border-input" placeholder="Numero de Filhos" >
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-3">
+	                                                    <div class="form-group">
+	                                                        <label>Data de Aniversario</label>
+	                                                        <input name="dateBirth" v-model="medico.dateBirth" type="text" class="form-control border-input" placeholder="Data de Aniversario">
+	                                                    </div>
+	                                                </div>
+	                                                <div class="col-md-6">
+	                                                    <div class="form-group">
+	                                                        <label>Telefone</label>
+	                                                        <input name="phone" v-model="medico.phone" type="text" class="form-control border-input" placeholder="Seu Telefone" >
+	                                                    </div>
+	                                                </div>
+	                                            </div>
+	        
+	<!--                                             <div class="row"> -->
+	<!--                                                 <div class="col-md-12"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Address</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                             </div> -->
+	        
+	<!--                                             <div class="row"> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>City</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="City" value="Melbourne"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Country</label> -->
+	<!--                                                         <input type="text" class="form-control border-input" placeholder="Country" value="Australia"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                                 <div class="col-md-4"> -->
+	<!--                                                     <div class="form-group"> -->
+	<!--                                                         <label>Postal Code</label> -->
+	<!--                                                         <input type="number" class="form-control border-input" placeholder="ZIP Code"> -->
+	<!--                                                     </div> -->
+	<!--                                                 </div> -->
+	<!--                                             </div> -->
+	                                            <div class="text-center">
+	                                                <button @click="clickNovoMedico" type="button" class="btn btn-info btn-fill btn-wd">Submeter</button>
+	                                            </div>
                                             <div class="clearfix"></div>
                                         </form>
                                     </div>
@@ -225,20 +225,20 @@
         </div>
 
 
-        <footer class="footer">
+        <footer  class="footer">
             <div class="container-fluid">
                 <nav class="pull-left">
                     <ul>
 
                         <li>
-                            <a href="http://localhost:8080/clinica">
+                            <a @click="clickClinica" href="#">
                                 Clinica
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script>, made by <a href="http://localhost:8080/clinica">Daniel</a>
+                    &copy; 2018, made by <a @click="clickClinica" href="#">Daniel</a>
                 </div>
             </div>
         </footer>
@@ -249,26 +249,16 @@
 
 </body>
 
-    <!--   Core JS Files   -->
     <script th:src="@{/assets/js/jquery-1.10.2.js}" type="text/javascript"></script>
 	<script th:src="@{/assets/js/bootstrap.min.js}" type="text/javascript"></script>
-
-	<!--  Checkbox, Radio & Switch Plugins -->
-<!-- 	<script th:src="@{/assets/js/bootstrap-checkbox-radio.js}"></script> -->
-
-	<!--  Charts Plugin -->
 	<script th:src="@{/assets/js/chartist.min.js}"></script>
-
-    <!--  Notifications Plugin    -->
-<!--     <script th:src="@{/assets/js/bootstrap-notify.js}"></script> -->
-
-    <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-
-    <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
-<!-- 	<script th:src="@{/assets/js/paper-dashboard.js}"></script> -->
-
-	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script th:src="@{/assets/js/demo.js}"></script>
+	<script th:src="@{/vue/vue.2.5.17.js}"></script>
+	<script th:src="@{/js/axios.min.0.18.0.js}"></script>
+	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/vue/bootstrap-vue.js}"></script>
+	<script th:src="@{/vue/import.js}"></script>
 
 </html>

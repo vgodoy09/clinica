@@ -46,7 +46,9 @@ public class Medico extends User implements Externalizable {
 	public void setEspecialidade(Especialidade especialidade) {
 		this.especialidade = especialidade;
 	}
-	
+	public Integer getId() {
+		return id;
+	}
 	public String getEspecialidadeName() {
 		return especialidade != null ? especialidade.getName() : "";
 	}

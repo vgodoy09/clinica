@@ -21,8 +21,7 @@ public class IndexController {
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("tabela_consulta");
+			mv.setViewName("tabela_consulta");
 		}
 		return mv;
 	}
@@ -31,8 +30,7 @@ public class IndexController {
 	public ModelAndView consulta() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("tabela_consulta");
+			mv.setViewName("tabela_consulta");
 		}
 		return mv;
 	}
@@ -41,8 +39,7 @@ public class IndexController {
 	public ModelAndView medicos() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("tabela_medico");
+			mv.setViewName("tabela_medico");
 		}
 		return mv;
 	}
@@ -51,8 +48,7 @@ public class IndexController {
 	public ModelAndView especialidade() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("tabela_especialidade");
+			mv.setViewName("tabela_especialidade");
 		}
 		return mv;
 	}
@@ -61,8 +57,7 @@ public class IndexController {
 	public ModelAndView paciente() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("tabela_paciente");
+			mv.setViewName("tabela_paciente");
 		}
 		return mv;
 	}
@@ -72,20 +67,44 @@ public class IndexController {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
 			mv.setViewName("paciente");
-//			mv = new ModelAndView("paciente");
 		}
 		return mv;
 	}
 	
-	@GetMapping("/paciente/created")
-	public ModelAndView created() {
+	@GetMapping("/cadastroespecialidade")
+	public ModelAndView cadastroespecialidade() {
 		ModelAndView mv = new ModelAndView(INDEX);
 		if(userCredencial.isLogger()) {
-//			mv.setViewName("redirect:/admin");
-			mv = new ModelAndView("redirect:/cadastropaciente");
+			mv.setViewName("especialidade");
 		}
 		return mv;
 	}
+	
+	@GetMapping("/cadastromedico")
+	public ModelAndView cadastromedico() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+			mv.setViewName("medico");
+		}
+		return mv;
+	}
+	@GetMapping("/cadastroconsulta")
+	public ModelAndView cadastroconsulta() {
+		ModelAndView mv = new ModelAndView(INDEX);
+		if(userCredencial.isLogger()) {
+			mv.setViewName("consulta");
+		}
+		return mv;
+	}
+	
+//	@GetMapping("/paciente/created")
+//	public ModelAndView created() {
+//		ModelAndView mv = new ModelAndView(INDEX);
+//		if(userCredencial.isLogger()) {
+//			mv.setViewName("redirect:/cadastropaciente");
+//		}
+//		return mv;
+//	}
 	
 	
 }
