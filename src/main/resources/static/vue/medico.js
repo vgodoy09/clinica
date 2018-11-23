@@ -19,7 +19,7 @@ new Vue({
 			numberChildren: null,
 			phone: null,
 			status: "ATIVO",
-			dateDate: null,
+			dateBirth: null,
 			especialidadeId: null,
 			especialidade: {
 				id: null,
@@ -29,9 +29,8 @@ new Vue({
 	},
 	mounted() {
 		var id = location.search.split('id=')[1];
-		var especialidadeId = location.search.split('especialidadeId=')[1];
-		if(id != null && typeof id != "undefined" && especialidadeId != null && typeof especialidadeId != "undefined") 
-			this.getMedico(id, especialidadeId);
+		if(id != null && typeof id != "undefined") 
+			this.getMedico(id);
 		
 		this.listEspecialidade();
 
@@ -42,10 +41,6 @@ new Vue({
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
 				this.medico = resp.data;
-			})
-			axios.get("/clinica/getEspecialidadeIdMemory").then(resp => {
-				this.medico.especialidadeId = resp.data;
-				console.log(this.medico.especialidadeId);
 			})
 		},
 		
@@ -88,5 +83,5 @@ function createMedico(vue) {
 		vue.loadingImport = false;
 		window.location.href = "/clinica/medico";
 	})
-
 }
+

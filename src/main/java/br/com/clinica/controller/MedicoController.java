@@ -34,7 +34,7 @@ public class MedicoController {
 	
 	// Create a new Medico
 	@PostMapping("/medicos")
-	public Medico createMedico(@Valid @RequestBody Medico medico) {
+	public Medico createMedico(@RequestBody Medico medico) {
 	    return medicoRepository.save(medico);
 	}
 	
@@ -49,7 +49,6 @@ public class MedicoController {
 	@PutMapping("/medicos/{id}")
 	public Medico updateMedico(@PathVariable(value = "id") Integer medicoId,
 	                                        @Valid @RequestBody Medico medicoDetails) {
-
 	    Medico medico = medicoRepository.findById(medicoId)
 	            .orElseThrow(() -> new ResourceNotFoundException("Medico", "id", medicoId));
 
@@ -59,7 +58,6 @@ public class MedicoController {
 	    medico.setPassword(medicoDetails.getPassword());
 	    medico.setDateBirth(medicoDetails.getDateBirth());
 	    medico.setEspecialidade(medicoDetails.getEspecialidade());
-
 	    Medico updatedMedico = medicoRepository.save(medico);
 	    return updatedMedico;
 	}

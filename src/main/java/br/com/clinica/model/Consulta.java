@@ -18,19 +18,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Parent;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import br.com.clinica.model.enuns.Status;
 
 @Entity 
 @Table(name = "consulta")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Consulta implements Externalizable {
 	
 	@Id
@@ -44,16 +39,16 @@ public class Consulta implements Externalizable {
 	@Enumerated(EnumType.STRING)
 	@Column(name="status")
     private Status status;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_medico", insertable=true, updatable=false, referencedColumnName="id")
-	@JsonBackReference(value="medico-consultas")
+//	@JsonBackReference(value="medico-consultas")
 	private Medico medico;
-	private String medicoName;
-	@ManyToOne(fetch=FetchType.LAZY)
+//	private String medicoName;
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_cliente", insertable=true, updatable=false, referencedColumnName="id")
-	@JsonBackReference(value="cliente-consultas")
+//	@JsonBackReference(value="cliente-consultas")
 	private Cliente cliente;
-	private String clienteName;
+//	private String clienteName;
 	
 	public Consulta() {}
 	public Consulta(Integer id) {this.id = id;}
@@ -94,12 +89,12 @@ public class Consulta implements Externalizable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	public String getMedicoName() {
-		return medico != null ? medico.getName() : "";
-	}
-	public String getClienteName() {
-		return cliente != null ? cliente.getName() : "";
-	}
+//	public String getMedicoName() {
+//		return medico != null ? medico.getName() : "";
+//	}
+//	public String getClienteName() {
+//		return cliente != null ? cliente.getName() : "";
+//	}
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(id);

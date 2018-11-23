@@ -17,7 +17,6 @@ import br.com.clinica.model.Cliente;
 import br.com.clinica.model.Consulta;
 import br.com.clinica.model.Especialidade;
 import br.com.clinica.model.Medico;
-import br.com.clinica.model.dto.UserDTO;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
@@ -82,14 +81,10 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 		return new ArrayList<Cliente>();
 	}
 	@Bean(name="listmedico")
-	public List<UserDTO> listMedico() {
-		return new ArrayList<UserDTO>();
+	public List<Medico> listMedico() {
+		return new ArrayList<Medico>();
 	}
 	
-	@Bean(name="especialidadeId")
-	public Integer getEspecialidadeId() {
-		return new Integer(0);
-	}
 	
 	@Override
 	public void run(String... args) throws Exception {

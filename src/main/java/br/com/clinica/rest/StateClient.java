@@ -15,10 +15,9 @@ import br.com.clinica.model.Cliente;
 import br.com.clinica.model.Consulta;
 import br.com.clinica.model.Especialidade;
 import br.com.clinica.model.Medico;
-import br.com.clinica.model.dto.UserDTO;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
-import br.com.clinica.repository.UserRepository;
+import br.com.clinica.repository.MedicoRepository;
 
 @RestController
 public class StateClient {
@@ -43,14 +42,11 @@ public class StateClient {
 	private List<Cliente> listCliente;
 	@Autowired
 	@Qualifier("listmedico")
-	private List<UserDTO> listMedico;
-	@Autowired
-	@Qualifier("especialidadeId")
-	private Integer especialidadeId;
+	private List<Medico> listMedico;
 	@Autowired
 	private ClienteRepository clienteRepository;
 	@Autowired
-	private UserRepository medicoRepository;
+	private MedicoRepository medicoRepository;
 	@Autowired
 	private EspecialidadeRepository especialidadeRepository;
 	
@@ -99,13 +95,7 @@ public class StateClient {
 	@GetMapping("getMedicoMemory/{id}")
 	public Medico getMedico(@PathVariable("id") Integer id) {
 		Medico medico = mapMedico.get(id);
-		especialidadeId = medico.getEspecialidadeId();
 		return medico;
-	}
-	
-	@GetMapping("getEspecialidadeIdMemory")
-	public Integer getEspecialidadeId() {
-		return especialidadeId;
 	}
 	
 	@PostMapping("saveInMemoryListEspecialidade")
@@ -130,21 +120,26 @@ public class StateClient {
 		return listCliente;
 	}
 	
+//	@PostMapping("saveInMemoryListMedico")
+//	public Boolean saveMemoryListMedico(@RequestBody List<UserDTO> list) {
+//		listMedico = list;
+//		return true;
+//	}
 	@PostMapping("saveInMemoryListMedico")
-	public Boolean saveMemoryListMedico(@RequestBody List<UserDTO> list) {
+	public Boolean saveMemoryListMedico(@RequestBody List<Medico> list) {
 		listMedico = list;
 		return true;
 	}
 	
 	@PostMapping("saveInMemoryListMedicoAndCliente")
 	public Boolean saveMemoryListMedicoAndCliente() {
-		this.listMedico = medicoRepository.getMedicos();
+		this.listMedico = medicoRepository.findAll();
 		this.listCliente = clienteRepository.findAll();
 		return true;
 	}
 	
 	@GetMapping("getListMedicoMemory")
-	public List<UserDTO> listMedico() {
+	public List<Medico> listMedico() {
 		return listMedico;
 	}
 	

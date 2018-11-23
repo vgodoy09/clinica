@@ -18,11 +18,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.Parent;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import br.com.clinica.model.enuns.Status;
 
@@ -31,7 +27,7 @@ import br.com.clinica.model.enuns.Status;
 @EntityListeners(AuditingEntityListener.class)
 //@JsonIgnoreProperties(value = {"accounts", "dreams", "categories"})
 //@JsonIgnoreProperties(ignoreUnknown=true)
-@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class User implements Externalizable {

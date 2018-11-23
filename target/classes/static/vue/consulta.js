@@ -59,12 +59,12 @@ new Vue({
 		}
 	},
 	mounted() {
+		this.listPacientes();
+		this.listMedicos();
 		var id = location.search.split('id=')[1];
 		if(id != null && typeof id != "undefined") 
 			this.getConsulta(id);
 		
-		this.listPacientes();
-		this.listMedicos();
 
 	},
 	
@@ -116,6 +116,10 @@ new Vue({
 
 function createConsulta(vue) {
 	vue.loadingImport = true;
+	alert(vue.consulta.medico.id);
+	alert(vue.consulta.medico.name);
+	alert(vue.consulta.medico.especialidade.id);
+	alert(vue.consulta.medico.especialidade.name);
 	axios.post("/clinica/api/consultas", vue.consulta).then(resp => {
 		vue.loadingImport = false;
 		window.location.href = "/clinica/consulta";

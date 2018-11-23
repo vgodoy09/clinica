@@ -17,7 +17,7 @@ new Vue({
 			numberChildren: null,
 			phone: null,
 			status: "ATIVO",
-			dateDate: null,
+			dateBirth: null,
 			especialidade: {
 				id: null,
 				name: null
@@ -38,9 +38,6 @@ new Vue({
 		getMedico(id) {
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
-//				let cli = JSON.stringify(resp.data);
-//				console.log(cli);
-//				console.log(JSON.parse(cli));
 				this.medico = resp.data;
 			})
 		},
@@ -64,7 +61,6 @@ new Vue({
 		},
 		
 		clickUpdatedMedico: function(medico) {
-			alert(medico.especialidadeId);
 			axios.post("/clinica/saveInMemoryMedico", medico).then(resp => {
 				window.location.href = "/clinica/cadastromedico?id=" + medico.id;
 			})
@@ -98,8 +94,6 @@ new Vue({
 
 function deleteMedicos(vue, medico) {
 	vue.loadingImport = true;
-	
-	console.log(medico.id);
 	axios.delete("/clinica/api/medicos/"+ medico.id, medico).then(resp => {
 		vue.loadingImport = false;
 		window.location.href = "/clinica/medico";

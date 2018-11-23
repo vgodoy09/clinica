@@ -15,28 +15,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Parent;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity 
 @Table(name = "medico")
 @EntityListeners(AuditingEntityListener.class)
-@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
+//@JsonIdentityInfo(scope=Parent.class, generator=ObjectIdGenerators.PropertyGenerator.class, property="id")
 public class Medico extends User implements Externalizable {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_especialidade", insertable=true, updatable=false, referencedColumnName="id")
-	@JsonBackReference(value="especialidade-medicos")
+//	@JsonBackReference(value="especialidade-medicos")
 	private Especialidade especialidade;
-	private Integer especialidadeId;
-	private String especialidadeName;
+//	private Integer especialidadeId;
+//	private String especialidadeName;
 	
 	public Medico() {}
 	public Medico(Integer id) {this.id = id;}
@@ -53,19 +48,19 @@ public class Medico extends User implements Externalizable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getEspecialidadeName() {
-		return especialidade != null ? especialidade.getName() : "";
-	}
-	public Integer getEspecialidadeId() {
-		return especialidade != null ? especialidade.getId() : 0;
-	}
+//	public String getEspecialidadeName() {
+//		return especialidade != null ? especialidade.getName() : "";
+//	}
+//	public Integer getEspecialidadeId() {
+//		return especialidade != null ? especialidade.getId() : 0;
+//	}
 	
-	public void setEspecialidadeId(Integer especialidadeId) {
-		this.especialidadeId = especialidadeId;
-	}
-	public void setEspecialidadeName(String especialidadeName) {
-		this.especialidadeName = especialidadeName;
-	}
+//	public void setEspecialidadeId(Integer especialidadeId) {
+//		this.especialidadeId = especialidadeId;
+//	}
+//	public void setEspecialidadeName(String especialidadeName) {
+//		this.especialidadeName = especialidadeName;
+//	}
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {
 		out.writeObject(id);

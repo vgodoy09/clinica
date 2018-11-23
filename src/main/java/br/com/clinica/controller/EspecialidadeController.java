@@ -34,7 +34,7 @@ public class EspecialidadeController {
 	
 	// Create a new Especialidade
 	@PostMapping("/especialidades")
-	public Especialidade createEspecialidade(@Valid @RequestBody Especialidade especialidade) {
+	public Especialidade createEspecialidade(@RequestBody Especialidade especialidade) {
 	    return especialidadeRepository.save(especialidade);
 	}
 	

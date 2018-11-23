@@ -186,7 +186,7 @@
 														<div class="form-group">
 															<div class="input-group">
 																<select v-model="medico.especialidade" class="form-control">
-																	<option v-for="especialidade in especialidadeData" :selected="especialidade.id == medico.especialidadeId"
+																	<option v-for="especialidade in especialidadeData" :selected="especialidade.id == medico.especialidade.id"
 																		v-bind:value="especialidade">{{especialidade.name}}</option>
 																</select>
 															</div>
