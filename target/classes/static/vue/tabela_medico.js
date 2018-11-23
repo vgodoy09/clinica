@@ -64,6 +64,7 @@ new Vue({
 		},
 		
 		clickUpdatedMedico: function(medico) {
+			alert(medico.especialidadeId);
 			axios.post("/clinica/saveInMemoryMedico", medico).then(resp => {
 				window.location.href = "/clinica/cadastromedico?id=" + medico.id;
 			})

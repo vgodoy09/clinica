@@ -45,6 +45,9 @@ public class StateClient {
 	@Qualifier("listmedico")
 	private List<UserDTO> listMedico;
 	@Autowired
+	@Qualifier("especialidadeId")
+	private Integer especialidadeId;
+	@Autowired
 	private ClienteRepository clienteRepository;
 	@Autowired
 	private UserRepository medicoRepository;
@@ -96,7 +99,13 @@ public class StateClient {
 	@GetMapping("getMedicoMemory/{id}")
 	public Medico getMedico(@PathVariable("id") Integer id) {
 		Medico medico = mapMedico.get(id);
+		especialidadeId = medico.getEspecialidadeId();
 		return medico;
+	}
+	
+	@GetMapping("getEspecialidadeIdMemory")
+	public Integer getEspecialidadeId() {
+		return especialidadeId;
 	}
 	
 	@PostMapping("saveInMemoryListEspecialidade")

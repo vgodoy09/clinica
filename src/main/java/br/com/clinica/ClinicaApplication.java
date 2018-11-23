@@ -86,6 +86,11 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 		return new ArrayList<UserDTO>();
 	}
 	
+	@Bean(name="especialidadeId")
+	public Integer getEspecialidadeId() {
+		return new Integer(0);
+	}
+	
 	@Override
 	public void run(String... args) throws Exception {
 			

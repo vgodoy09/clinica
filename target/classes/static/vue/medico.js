@@ -20,7 +20,7 @@ new Vue({
 			phone: null,
 			status: "ATIVO",
 			dateDate: null,
-			especialidadeId : null,
+			especialidadeId: null,
 			especialidade: {
 				id: null,
 				name: null
@@ -41,6 +41,9 @@ new Vue({
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
 				this.medico = resp.data;
+			})
+			axios.get("/clinica/getEspecialidadeIdMemory").then(resp => {
+				this.medico.especialidadeId = resp.data;
 				console.log(this.medico.especialidadeId);
 			})
 		},
