@@ -172,13 +172,13 @@
 	                                                <div class="col-md-3">
 	                                                    <div class="form-group">
 	                                                        <label>Data de Aniversario</label>
-	                                                        <input name="dateBirth" v-model="cliente.dateBirth" type="text" class="form-control border-input" placeholder="Data de Aniversario">
+	                                                        <input name="dateBirth" v-mask="dateMask" v-model="cliente.dateBirth" type="text" class="form-control border-input" placeholder="Data de Aniversario">
 	                                                    </div>
 	                                                </div>
 	                                                <div class="col-md-6">
 	                                                    <div class="form-group">
-	                                                        <label>Telefone</label>
-	                                                        <input name="phone" v-model="cliente.phone" type="text" class="form-control border-input" placeholder="Seu Telefone" >
+	                                                        <label>Telefone Celular</label>
+	                                                        <input name="phone" v-mask="mobileMask" v-model="cliente.phone" type="text" class="form-control border-input" placeholder="Seu Telefone" >
 	                                                    </div>
 	                                                </div>
 	                                            </div>
@@ -259,5 +259,7 @@
 	<script th:src="@{/js/popper.min.js}"></script>
 	<script th:src="@{/vue/bootstrap-vue.js}"></script>
 	<script th:src="@{/vue/paciente.js}"></script>
+	<script th:src="@{/vue/v-mask.min.js.js}"></script>
+<!-- 	<script th:src="@{/vue/comum.js}"></script> -->
 
 </html>

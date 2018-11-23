@@ -22,6 +22,10 @@ new Vue({
 			})
 		},
 		
+		clickNovaEspecialidade: function() {
+			createEspecialidade(this);
+		},
+		
 		clickClinica: function() {
 			window.location.href = "/clinica/";
 		},
@@ -40,21 +44,10 @@ new Vue({
 		
 		clickLogout: function() {
 			window.location.href = "/clinica/logout";
-		},
-		
-		clickNovaEspecialidade: function() {
-			createEspecialidade(this);
 		}
 	}
 
 })
-
-//function getPaciente() {
-//	axios.get("/clinica/getClient/"+this.clienteId).then(resp => {
-//		this.cliente = resp.data;
-//		console.log(this.client);
-//	})
-//}
 
 function createEspecialidade(vue) {
 	vue.loadingImport = true;

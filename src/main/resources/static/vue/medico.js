@@ -12,7 +12,11 @@ new Vue({
 			phone: null,
 			status: "ATIVO",
 			dateDate: null,
-			especialidade: null
+//			especialidade: 1
+			especialidade: {
+				id: 1,
+				name: null
+			}
 		}
 	},
 	mounted() {
@@ -27,9 +31,11 @@ new Vue({
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
 				this.medico = resp.data;
-				console.log(resp.data);
-				console.log(this.medico.name);
 			})
+		},
+		
+		clickNovoMedico: function() {
+			createMedico(this);
 		},
 		
 		clickClinica: function() {
@@ -50,21 +56,10 @@ new Vue({
 		
 		clickLogout: function() {
 			window.location.href = "/clinica/logout";
-		},
-		
-		clickNovoMedico: function() {
-			createMedico(this);
 		}
 	}
 
 })
-
-//function getPaciente() {
-//	axios.get("/clinica/getClient/"+this.clienteId).then(resp => {
-//		this.cliente = resp.data;
-//		console.log(this.client);
-//	})
-//}
 
 function createMedico(vue) {
 	vue.loadingImport = true;

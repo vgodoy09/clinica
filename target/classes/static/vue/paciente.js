@@ -1,8 +1,13 @@
-
+//plugin de mascaras
+Vue.use(VueMask.VueMaskPlugin);
+//plugin de validações de formulário
+Vue.use(VeeValidate);
 
 new Vue({
 	el: "#app",
 	data: {
+		mobileMask: '(##)#####-####',
+		dateMask: '##/##/####',
 		cliente: {
 			id: null,
 			name: null,
@@ -30,6 +35,10 @@ new Vue({
 			})
 		},
 		
+		clickNovoPaciente: function() {
+			createPaciente(this);
+		},
+		
 		clickClinica: function() {
 			window.location.href = "/clinica/";
 		},
@@ -48,21 +57,10 @@ new Vue({
 		
 		clickLogout: function() {
 			window.location.href = "/clinica/logout";
-		},
-		
-		clickNovoPaciente: function() {
-			createPaciente(this);
 		}
 	}
 
 })
-
-//function getPaciente() {
-//	axios.get("/clinica/getClient/"+this.clienteId).then(resp => {
-//		this.cliente = resp.data;
-//		console.log(this.client);
-//	})
-//}
 
 function createPaciente(vue) {
 	vue.loadingImport = true;

@@ -131,6 +131,9 @@
                                     <div class="header">
                                         <h4 class="title">Pacientes</h4>
                                         <p class="category">Tabelas de pacientes</p>
+                                        <div class="col-md-0">
+			                            	<a @click="clickCreatePaciente" class="btn btn-primary" href="#">Adicionar</i></a>
+			                            </div>
                                     </div>
                                     <div class="content table-responsive table-full-width">
                                         <table class="table table-striped" >
@@ -209,5 +212,6 @@
 	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 	<script th:src="@{/js/popper.min.js}"></script>
 	<script th:src="@{/vue/bootstrap-vue.js}"></script>
-	<script th:src="@{/vue/import.js}"></script>
+	<script th:src="@{/vue/tabela_paciente.js}"></script>
+<!-- 	<script th:src="@{/vue/comum.js}"></script> -->
 </html>

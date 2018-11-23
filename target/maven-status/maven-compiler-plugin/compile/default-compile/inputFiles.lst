@@ -1,27 +1,42 @@
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/FollowUpType.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/enuns/DocumentType.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/CityController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/exception/ResourceNotFoundException.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/Country.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/ClienteRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/Especialidade.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/Medico.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/ClienteController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/CountryController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/EspecialidadeRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/CityRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/MedicoRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/StateRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/ClinicaApplication.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/EspecialidadeController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/User.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/enuns/Status.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/CountryRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/MedicoController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/Cliente.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/UserController.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/State.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/repository/UserRepository.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/FollowUp.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/model/City.java
-/home/victor.godoy/svn/workspace-sts/clinica/src/main/java/br/com/clinica/controller/StateController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/rest/StateClient.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/exception/ResourceNotFoundException.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/MedicoRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/City.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/Country.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/Cliente.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/config/UserCredencial.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/LoginRest.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/Consulta.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/LogoutController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/Medico.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/FollowUpType.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/CountryController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/enuns/DocumentType.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/UserRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/ClienteController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/IndexController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/ConsultasRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/MedicoController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/config/LogServer.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/StateController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/ConsultaController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/CityController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/StateRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/enuns/Status.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/ConsultaDTORepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/CountryRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/FollowUp.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/ClienteRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/CityRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/dto/UserDTO.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/EspecialidadeController.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/repository/EspecialidadeRepository.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/Especialidade.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/dto/LoginError.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/dto/ConsultaDTO.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/config/utils/CheckInstanceObject.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/config/Configuration.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/State.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/model/User.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/ClinicaApplication.java
+/home/victorgodoy/Área de Trabalho/app/workspace-sts/clinica/src/main/java/br/com/clinica/controller/UserController.java

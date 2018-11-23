@@ -25,6 +25,10 @@ new Vue({
 			})
 		},
 		
+		clickNovoConsulta: function() {
+			createConsulta(this);
+		},
+		
 		clickClinica: function() {
 			window.location.href = "/clinica/";
 		},
@@ -43,21 +47,10 @@ new Vue({
 		
 		clickLogout: function() {
 			window.location.href = "/clinica/logout";
-		},
-		
-		clickNovoConsulta: function() {
-			createConsulta(this);
 		}
 	}
 
 })
-
-//function getPaciente() {
-//	axios.get("/clinica/getClient/"+this.clienteId).then(resp => {
-//		this.cliente = resp.data;
-//		console.log(this.client);
-//	})
-//}
 
 function createConsulta(vue) {
 	vue.loadingImport = true;

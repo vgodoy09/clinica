@@ -72,7 +72,7 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	@Override
 	public void run(String... args) throws Exception {
 			
-//		Medico medico = new Medico(4);
+//		Medico medico = new Medico(2);
 //		medico.setName("Jose Roberto de Godoy");
 //	    medico.setLogin("joseroberto.godoy");
 //	    medico.setNumberChildren(2);
@@ -82,7 +82,7 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 //	    medico.setStatus(Status.ATIVO);
 //	    medico.setPhone("1147906017");
 //	    
-//		Cliente cliente = new Cliente(2);
+//		Cliente cliente = new Cliente(1);
 //	 	cliente.setName("Jayne Moraes");
 //	    cliente.setLogin("jayne.moraes");
 //	    cliente.setNumberChildren(2);
