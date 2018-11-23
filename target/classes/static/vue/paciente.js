@@ -1,7 +1,7 @@
 //plugin de mascaras
 Vue.use(VueMask.VueMaskPlugin);
 //plugin de validações de formulário
-Vue.use(VeeValidate);
+//Vue.use(VeeValidate);
 
 new Vue({
 	el: "#app",
@@ -17,7 +17,7 @@ new Vue({
 			phone: null,
 			status: "ATIVO",
 			dateBirth: null,
-			convenio: null
+			convenio: false
 		}
 	},
 	mounted() {
@@ -64,6 +64,7 @@ new Vue({
 
 function createPaciente(vue) {
 	vue.loadingImport = true;
+	console.log(vue.cliente.convenio);
 	axios.post("/clinica/api/clientes", vue.cliente).then(resp => {
 		vue.loadingImport = false;
 		window.location.href = "/clinica/paciente";

@@ -4,7 +4,6 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -48,7 +47,7 @@ public class User implements Externalizable {
 	@Column(name="password")
 	private String password;
 	@Column(name="date_birth")
-	private LocalDate dateBirth;
+	private String dateBirth;
 	@NotBlank(message="Informar um Nome")
 	@Column(name="name")
 	private String name;
@@ -98,11 +97,11 @@ public class User implements Externalizable {
 		this.password = password;
 	}
 
-	public LocalDate getDateBirth() {
+	public String getDateBirth() {
 		return dateBirth;
 	}
 
-	public void setDateBirth(LocalDate dateBirth) {
+	public void setDateBirth(String dateBirth) {
 		this.dateBirth = dateBirth;
 	}
 
@@ -185,7 +184,7 @@ public class User implements Externalizable {
 		id = (Integer) in.readObject();
 		login = (String) in.readObject();
 		password = (String) in.readObject();
-		dateBirth = (LocalDate) in.readObject(); //serial date sql
+		dateBirth = (String) in.readObject(); //serial date sql
 		name = (String) in.readObject();
 		numberChildren = (Integer) in.readObject();
 //		categories = (List<Category>) in.readObject();

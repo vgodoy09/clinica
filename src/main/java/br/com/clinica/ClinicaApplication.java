@@ -101,14 +101,14 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 //		    consultasRepository.save(consulta);
 //		    
 //			Cliente cliente = new Cliente();
-//		 	cliente.setName("Matheus Gregorio");
-//		    cliente.setLogin("matheus.gregorio");
+//		 	cliente.setName("Victor Prado de Godoy");
+//		    cliente.setLogin("victor.godoy");
 //		    cliente.setNumberChildren(0);
-//		    cliente.setPassword("12345678");
-//		    cliente.setDateBirth(LocalDate.now());
+//		    cliente.setPassword("123456789");
+//		    cliente.setDateBirth("19/10/1991");
 //		    cliente.setConvenio(true);
 //		    cliente.setStatus(Status.ATIVO);
-//		    cliente.setPhone("1147906017");
+//		    cliente.setPhone("(11)96371-3714");
 //		    Cliente save = clienteRepository.save(cliente);
 //		    System.out.println(save.toString());
 //		

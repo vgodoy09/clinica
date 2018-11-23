@@ -4,7 +4,6 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,7 +38,7 @@ public class Consulta implements Externalizable {
 	@Column(name="id")
 	private Integer id;
 	@Column(name="data_consulta")
-	private LocalDate dataConsulta;
+	private String dataConsulta;
 	@Column(name="descricao")
 	private String descricao;
 	@Enumerated(EnumType.STRING)
@@ -65,10 +64,10 @@ public class Consulta implements Externalizable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public LocalDate getDataConsulta() {
+	public String getDataConsulta() {
 		return dataConsulta;
 	}
-	public void setDataConsulta(LocalDate dataConsulta) {
+	public void setDataConsulta(String dataConsulta) {
 		this.dataConsulta = dataConsulta;
 	}
 	public String getDescricao() {
@@ -115,7 +114,7 @@ public class Consulta implements Externalizable {
 	@Override
 	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
 		id = (Integer) in.readObject();
-		dataConsulta = (LocalDate) in.readObject(); //serial date sql
+		dataConsulta = (String) in.readObject(); //serial date sql
 		status = (Status) in.readObject();
 		descricao = (String) in.readObject();
 		medico = (Medico) in.readObject();
