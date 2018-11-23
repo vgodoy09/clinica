@@ -1,7 +1,5 @@
 //plugin de mascaras
 Vue.use(VueMask.VueMaskPlugin);
-//plugin de validações de formulário
-//Vue.use(VeeValidate);
 
 new Vue({
 	el: "#app",

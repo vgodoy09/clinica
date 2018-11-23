@@ -1,5 +1,7 @@
 package br.com.clinica.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -45,4 +47,18 @@ public interface UserRepository extends JpaRepository<UserDTO, Integer> {
 			"      and status = 'ATIVO'  " 
 	, nativeQuery=true)
 	public UserDTO login(String login, String password);
+	
+	@Query(value = 
+					"		select               " +
+					"	       m.id,             " +
+					"          m.date_birth,     " +
+					"          m.login,          " +
+					"          m.name,           " +
+					"          m.number_children," +
+					"          m.password,       " +
+					"          m.phone,          " +
+					"          m.status          " +
+					"		from medico m       "
+					, nativeQuery=true)
+	public List<UserDTO> getMedicos();
 } 

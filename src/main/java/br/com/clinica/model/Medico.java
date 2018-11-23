@@ -35,6 +35,7 @@ public class Medico extends User implements Externalizable {
 	@JoinColumn(name="id_especialidade", insertable=true, updatable=false, referencedColumnName="id")
 	@JsonBackReference(value="especialidade-medicos")
 	private Especialidade especialidade;
+	private Integer especialidadeId;
 	private String especialidadeName;
 	
 	public Medico() {}
@@ -54,6 +55,16 @@ public class Medico extends User implements Externalizable {
 	}
 	public String getEspecialidadeName() {
 		return especialidade != null ? especialidade.getName() : "";
+	}
+	public Integer getEspecialidadeId() {
+		return especialidade != null ? especialidade.getId() : 0;
+	}
+	
+	public void setEspecialidadeId(Integer especialidadeId) {
+		this.especialidadeId = especialidadeId;
+	}
+	public void setEspecialidadeName(String especialidadeName) {
+		this.especialidadeName = especialidadeName;
 	}
 	@Override
 	public void writeExternal(ObjectOutput out) throws IOException {

@@ -3,13 +3,61 @@
 new Vue({
 	el: "#app",
 	data: {
+		pacienteData: [],
+		medicoData: [],
 		consultaData: [],
+		wrapper:{
+			medicos: [],
+			clientes: []
+		},
+		cliente: {
+			id: null,
+			name: null,
+			login: null,
+			password: null,
+			numberChildren: null,
+			phone: null,
+			status: "ATIVO",
+			dateBirth: null,
+			convenio: null
+		},
+		medico: {
+			id: null,
+			name: null,
+			login: null,
+			password: null,
+			numberChildren: null,
+			phone: null,
+			status: "ATIVO",
+			dateDate: null,
+			especialidade: null
+		},
 		consulta: {
 			id: null,
 			descricao: null,
 			dataConsulta: null,
-			medico: null,
-			cliente: null
+			cliente: {
+				id: null,
+				name: null,
+				login: null,
+				password: null,
+				numberChildren: null,
+				phone: null,
+				status: "ATIVO",
+				dateBirth: null,
+				convenio: null
+			},
+			medico: {
+				id: null,
+				name: null,
+				login: null,
+				password: null,
+				numberChildren: null,
+				phone: null,
+				status: "ATIVO",
+				dateDate: null,
+				especialidade: null
+			}
 		}
 	},
 	mounted() {
@@ -34,7 +82,9 @@ new Vue({
 		},
 		
 		clickCreatedConsulta: function() {
-			window.location.href = "/clinica/cadastroconsulta";
+			axios.post("/clinica/saveInMemoryListMedicoAndCliente").then(resp => {
+				window.location.href = "/clinica/cadastroconsulta";
+			})
 		},
 		
 		clickUpdatedConsulta: function(consulta) {

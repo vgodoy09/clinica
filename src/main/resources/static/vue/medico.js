@@ -1,8 +1,16 @@
-
+//plugin de mascaras
+Vue.use(VueMask.VueMaskPlugin);
 
 new Vue({
 	el: "#app",
 	data: {
+		mobileMask: '(##)#####-####',
+		dateMask: '##/##/####',
+		especialidadeData: [],
+		especialidade: {
+			id: null,
+			name: null
+		},
 		medico: {
 			id: null,
 			name: null,
@@ -12,9 +20,9 @@ new Vue({
 			phone: null,
 			status: "ATIVO",
 			dateDate: null,
-//			especialidade: 1
+			especialidadeId : null,
 			especialidade: {
-				id: 1,
+				id: null,
 				name: null
 			}
 		}
@@ -23,6 +31,8 @@ new Vue({
 		var id = location.search.split('id=')[1];
 		if(id != null && typeof id != "undefined") 
 			this.getMedico(id);
+		
+		this.listEspecialidade();
 
 	},
 	
@@ -31,6 +41,13 @@ new Vue({
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
 				this.medico = resp.data;
+				console.log(this.medico.especialidadeId);
+			})
+		},
+		
+		listEspecialidade() {
+			axios.get("/clinica/getListEspecialidadeMemory").then(resp => {
+				this.especialidadeData = resp.data;
 			})
 		},
 		

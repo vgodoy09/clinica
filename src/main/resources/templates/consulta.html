@@ -114,102 +114,61 @@
         <div class="content">
             <div class="container-fluid">
                     <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                <div class="card card-user">
-                                    <div class="image">
-                                        <img src="assets/img/background.jpg" alt="..."/>
-                                    </div>
-                                    <div class="content">
-                                        <div class="author">
-                                          <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
-                                          <h4 class="title">Daniel<br />
-                                             <a href="#"><small>@daniel</small></a>
-                                          </h4>
-                                        </div>
-                                        <p class="description text-center">
-                                            "I like the way you work it <br>
-                                            No diggity <br>
-                                            I wanna bag it up"
-                                        </p>
-                                    </div>
-                                    <hr>
-                                </div>
-                            </div>
-                            <div class="col-lg-8 col-md-7">
-                                <div class="card">
-                                    <div class="header">
-	                                        <h4 class="title">Consulta </h4>
-	                                    </div>
-	                                    <div class="content">
-	                                        <form>
-	                                            <div class="row">
-	                                                <div class="col-md-12">
-	                                                    <div class="form-group">
-	                                                        <label>Descricao</label>
-	                                                        <input name="descricao" type="text" v-model="consulta.descricao"  class="form-control border-input" placeholder="Descricao" autofocus>
-	                                                    </div>
-	                                                </div>
-	                                            </div>
-	        
-	                                            <div class="row">
-	                                                <div class="col-md-4">
-	                                                    <div class="form-group">
-	                                                        <label>Data</label>
-	                                                        <input name="data" v-model="consulta.dataConsulta"  type="text" class="form-control border-input" placeholder="Numero de Filhos" >
-	                                                    </div>
-	                                                </div>
-	                                                <div class="col-md-4">
-	                                                    <div class="form-group">
-	                                                        <label>Paciente</label>
-	                                                        <input name="paciente" v-model="consulta.clienteName" type="text" class="form-control border-input" placeholder="Data de Aniversario">
-	                                                    </div>
-	                                                </div>
-	                                                <div class="col-md-4">
-	                                                    <div class="form-group">
-	                                                        <label>Medico</label>
-	                                                        <input name="medico" v-model="consulta.medicoName" type="text" class="form-control border-input" placeholder="Seu Telefone" >
-	                                                    </div>
-	                                                </div>
-	                                            </div>
-	        
-	<!--                                             <div class="row"> -->
-	<!--                                                 <div class="col-md-12"> -->
-	<!--                                                     <div class="form-group"> -->
-	<!--                                                         <label>Address</label> -->
-	<!--                                                         <input type="text" class="form-control border-input" placeholder="Home Address" value="Melbourne, Australia"> -->
-	<!--                                                     </div> -->
-	<!--                                                 </div> -->
-	<!--                                             </div> -->
-	        
-	<!--                                             <div class="row"> -->
-	<!--                                                 <div class="col-md-4"> -->
-	<!--                                                     <div class="form-group"> -->
-	<!--                                                         <label>City</label> -->
-	<!--                                                         <input type="text" class="form-control border-input" placeholder="City" value="Melbourne"> -->
-	<!--                                                     </div> -->
-	<!--                                                 </div> -->
-	<!--                                                 <div class="col-md-4"> -->
-	<!--                                                     <div class="form-group"> -->
-	<!--                                                         <label>Country</label> -->
-	<!--                                                         <input type="text" class="form-control border-input" placeholder="Country" value="Australia"> -->
-	<!--                                                     </div> -->
-	<!--                                                 </div> -->
-	<!--                                                 <div class="col-md-4"> -->
-	<!--                                                     <div class="form-group"> -->
-	<!--                                                         <label>Postal Code</label> -->
-	<!--                                                         <input type="number" class="form-control border-input" placeholder="ZIP Code"> -->
-	<!--                                                     </div> -->
-	<!--                                                 </div> -->
-	<!--                                             </div> -->
-	                                            <div class="text-center">
-	                                                <button @click="clickNovoConsulta" type="button" class="btn btn-info btn-fill btn-wd">Submeter</button>
-	                                            </div>
-                                            <div class="clearfix"></div>
-                                        </form>
-                                    </div>
+                        <div class="col-lg-8 col-md-7">
+                            <div class="card">
+                                <div class="header">
+                                     <h4 class="title">Consulta </h4>
+                                 </div>
+                                 <div class="content">
+                                     <form>
+                                         <div class="row">
+                                             <div class="col-md-12">
+                                                 <div class="form-group">
+                                                     <label>Descricao</label>
+                                                     <input name="descricao" type="text" v-model="consulta.descricao"  class="form-control border-input" placeholder="Descricao" autofocus>
+                                                 </div>
+                                             </div>
+                                         </div>
+     
+                                         <div class="row">
+                                             <div class="col-md-4">
+                                                 <div class="form-group">
+                                                     <label>Data</label>
+                                                     <input name="data" v-mask="dateMask" v-model="consulta.dataConsulta"  type="text" class="form-control border-input" placeholder="Numero de Filhos" >
+                                                 </div>
+                                             </div>
+                                             <div class="col-md-4">
+												<span>*Paciente</span>
+												<div class="form-group">
+													<div class="input-group">
+														<select v-model="consulta.cliente" class="form-control">
+															<option v-for="cliente in pacienteData" :selected="cliente.id == consulta.cliente.id"
+																v-bind:value="cliente">{{cliente.name}}</option>
+														</select>
+													</div>
+												</div>
+											</div>
+                                          	<div class="col-md-4">
+												<span>*Medico</span>
+												<div class="form-group">
+													<div class="input-group">
+														<select v-model="consulta.medico" class="form-control">
+															<option v-for="medico in medicoData" :selected="medico.id == consulta.medico.id"
+																v-bind:value="medico">{{medico.name}}</option>
+														</select>
+													</div>
+												</div>
+											</div>
+                                         </div>
+                                         <div class="text-center">
+                                             <button @click="clickNovoConsulta" type="button" class="btn btn-info btn-fill btn-wd">Submeter</button>
+                                         </div>
+                                        <div class="clearfix"></div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
+                    </div>
             </div>
         </div>
 
@@ -248,6 +207,7 @@
 	<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
 	<script th:src="@{/js/popper.min.js}"></script>
 	<script th:src="@{/vue/bootstrap-vue.js}"></script>
+	<script th:src="@{/vue/v-mask.min.js}"></script>
 	<script th:src="@{/vue/consulta.js}"></script>
 <!-- 	<script th:src="@{/vue/comum.js}"></script> -->
 	

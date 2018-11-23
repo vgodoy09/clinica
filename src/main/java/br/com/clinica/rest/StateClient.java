@@ -1,5 +1,6 @@
 package br.com.clinica.rest;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ import br.com.clinica.model.Cliente;
 import br.com.clinica.model.Consulta;
 import br.com.clinica.model.Especialidade;
 import br.com.clinica.model.Medico;
+import br.com.clinica.model.dto.UserDTO;
+import br.com.clinica.repository.ClienteRepository;
+import br.com.clinica.repository.EspecialidadeRepository;
+import br.com.clinica.repository.UserRepository;
 
 @RestController
 public class StateClient {
@@ -30,6 +35,21 @@ public class StateClient {
 	@Autowired
 	@Qualifier("medico")
 	private Map<Integer, Medico> mapMedico;
+	@Autowired
+	@Qualifier("listespecialidade")
+	private List<Especialidade> listEspecialidade;
+	@Autowired
+	@Qualifier("listcliente")
+	private List<Cliente> listCliente;
+	@Autowired
+	@Qualifier("listmedico")
+	private List<UserDTO> listMedico;
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private UserRepository medicoRepository;
+	@Autowired
+	private EspecialidadeRepository especialidadeRepository;
 	
 	
 	
@@ -69,6 +89,7 @@ public class StateClient {
 	@PostMapping("saveInMemoryMedico")
 	public Boolean saveMemoryMedico(@RequestBody Medico medico) {
 		mapMedico.put(medico.getId(), medico);
+		listEspecialidade = especialidadeRepository.findAll();
 		return true;
 	}
 	
@@ -76,6 +97,46 @@ public class StateClient {
 	public Medico getMedico(@PathVariable("id") Integer id) {
 		Medico medico = mapMedico.get(id);
 		return medico;
+	}
+	
+	@PostMapping("saveInMemoryListEspecialidade")
+	public Boolean saveMemoryListEspecialidade(@RequestBody List<Especialidade> list) {
+		listEspecialidade = list;
+		return true;
+	}
+	
+	@GetMapping("getListEspecialidadeMemory")
+	public List<Especialidade> listEspecialidade() {
+		return listEspecialidade;
+	}
+	
+	@PostMapping("saveInMemoryListCliente")
+	public Boolean saveMemoryListCliente(@RequestBody List<Cliente> list) {
+		listCliente = list;
+		return true;
+	}
+	
+	@GetMapping("getListClienteMemory")
+	public List<Cliente> listCliente() {
+		return listCliente;
+	}
+	
+	@PostMapping("saveInMemoryListMedico")
+	public Boolean saveMemoryListMedico(@RequestBody List<UserDTO> list) {
+		listMedico = list;
+		return true;
+	}
+	
+	@PostMapping("saveInMemoryListMedicoAndCliente")
+	public Boolean saveMemoryListMedicoAndCliente() {
+		this.listMedico = medicoRepository.getMedicos();
+		this.listCliente = clienteRepository.findAll();
+		return true;
+	}
+	
+	@GetMapping("getListMedicoMemory")
+	public List<UserDTO> listMedico() {
+		return listMedico;
 	}
 	
 	

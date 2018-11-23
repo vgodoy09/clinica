@@ -4,6 +4,11 @@ new Vue({
 	el: "#app",
 	data: {
 		medicoData: [],
+		especialidadeData: [],
+		especialidade: {
+			id: null,
+			name: null
+		},
 		medico: {
 			id: null,
 			name: null,
@@ -25,6 +30,7 @@ new Vue({
 			this.getMedico(id);
 		
 		this.listMedicos();
+		this.listEspecialidades();
 
 	},
 	
@@ -32,7 +38,16 @@ new Vue({
 		getMedico(id) {
 			console.log(id);
 			axios.get("/clinica/getMedicoMemory/"+id).then(resp => {
+//				let cli = JSON.stringify(resp.data);
+//				console.log(cli);
+//				console.log(JSON.parse(cli));
 				this.medico = resp.data;
+			})
+		},
+		
+		listEspecialidades() {
+			axios.get("/clinica/api/especialidades").then(resp => {
+				this.especialidadeData = resp.data;
 			})
 		},
 		
@@ -43,7 +58,9 @@ new Vue({
 		},
 		
 		clickCreatedMedico: function() {
-			window.location.href = "/clinica/cadastromedico";
+			axios.post("/clinica/saveInMemoryListEspecialidade", this.especialidadeData).then(resp => {
+				window.location.href = "/clinica/cadastromedico";
+			})
 		},
 		
 		clickUpdatedMedico: function(medico) {

@@ -1,6 +1,8 @@
 package br.com.clinica;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import br.com.clinica.model.Cliente;
 import br.com.clinica.model.Consulta;
 import br.com.clinica.model.Especialidade;
 import br.com.clinica.model.Medico;
+import br.com.clinica.model.dto.UserDTO;
 import br.com.clinica.repository.ClienteRepository;
 import br.com.clinica.repository.ConsultasRepository;
 import br.com.clinica.repository.EspecialidadeRepository;
@@ -67,6 +70,20 @@ public class ClinicaApplication extends SpringBootServletInitializer implements 
 	public Map<Integer, Medico> mapMedico() {
 		HashMap<Integer, Medico> mapMedico = new HashMap<>();
 		return mapMedico;
+	}
+	
+	@Bean(name="listespecialidade")
+	public List<Especialidade> listEspecialidade() {
+		return new ArrayList<Especialidade>();
+	}
+	
+	@Bean(name="listcliente")
+	public List<Cliente> listCliente() {
+		return new ArrayList<Cliente>();
+	}
+	@Bean(name="listmedico")
+	public List<UserDTO> listMedico() {
+		return new ArrayList<UserDTO>();
 	}
 	
 	@Override
