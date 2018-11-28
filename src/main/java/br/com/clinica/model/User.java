@@ -23,7 +23,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import br.com.clinica.model.enuns.Status;
 
 @Entity 
-@Table(name = "user")
+@Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
 //@JsonIgnoreProperties(value = {"accounts", "dreams", "categories"})
 //@JsonIgnoreProperties(ignoreUnknown=true)
